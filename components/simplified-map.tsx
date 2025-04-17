@@ -1,83 +1,252 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import {
+  MapContainer,
+  TileLayer,
+  CircleMarker,
+  Tooltip,
+  Polyline,
+  useMapEvents,
+  useMap,
+} from "react-leaflet"
+import L, { LatLngExpression, LatLng } from "leaflet"
+import "leaflet/dist/leaflet.css"
+import "leaflet.heat"
 
-interface SimplifiedMapProps {
-  onSuburbSelect: (suburbId: string) => void
-  selectedSuburbId?: string
+import suburbData from "@/data/nsw-suburbs-coords-final-scores.json" assert { type: "json" }
+
+// ────────────────────────────────────────────────────────────
+// helpers
+// ────────────────────────────────────────────────────────────
+const EXCLUDE = ["CADGEE", "ARATULA", "WASHPOOL"]
+const displayPoints = suburbData.filter((s) => !EXCLUDE.includes(s.suburb))
+
+const scoreToColor = (v: number) => {
+  const t = Math.max(0, Math.min(10, v)) / 10
+  return `rgb(${Math.round(255 * (1 - t))},${Math.round(255 * t)},0)`
 }
 
-export function SimplifiedMap({ onSuburbSelect, selectedSuburbId }: SimplifiedMapProps) {
-  // This is a simplified map component
-  // In a real application, you would use a proper mapping library like Leaflet or Mapbox
-  // with actual GeoJSON data for NSW suburbs
+const idw = (lat: number, lon: number, k = 8, p = 2) => {
+  const ds = suburbData.map(({ coordinate, score }) => ({
+    d: L.latLng(lat, lon).distanceTo(L.latLng(coordinate.lat, coordinate.lon)),
+    score,
+    coord: coordinate,
+  }))
+  ds.sort((a, b) => a.d - b.d)
+  const nearest = ds.slice(0, k)
+  if (nearest[0].d < 1) return { value: nearest[0].score, nearest }
+  let num = 0,
+    den = 0
+  nearest.forEach(({ d, score }) => {
+    const w = 1 / Math.pow(d, p)
+    num += w * score
+    den += w
+  })
+  return { value: den ? num / den : undefined, nearest }
+}
 
-  const [hoveredSuburb, setHoveredSuburb] = useState<string | null>(null)
+// ────────────────────────────────────────────────────────────
+// types
+// ────────────────────────────────────────────────────────────
+interface SimplifiedMapProps {
+  onSuburbSelect?: (id: string) => void
+  selectedSuburbId?: string
+  pin?: { lat: number; lon: number; score?: number }
+}
 
-  // Mock suburb data - in a real app this would be GeoJSON data
-  const mockSuburbs = [
-    { id: "sydney", name: "Sydney", x: 50, y: 50, width: 30, height: 30 },
-    { id: "parramatta", name: "Parramatta", x: 30, y: 40, width: 25, height: 25 },
-    { id: "newcastle", name: "Newcastle", x: 70, y: 20, width: 25, height: 25 },
-    { id: "wollongong", name: "Wollongong", x: 60, y: 70, width: 25, height: 25 },
-    { id: "penrith", name: "Penrith", x: 15, y: 35, width: 20, height: 20 },
-    { id: "gosford", name: "Gosford", x: 60, y: 30, width: 20, height: 20 },
-    { id: "bathurst", name: "Bathurst", x: 20, y: 15, width: 20, height: 20 },
-    { id: "wagga", name: "Wagga Wagga", x: 20, y: 80, width: 20, height: 20 },
-    { id: "albury", name: "Albury", x: 30, y: 90, width: 20, height: 20 },
-    { id: "tamworth", name: "Tamworth", x: 40, y: 10, width: 20, height: 20 },
-  ]
+type ViewMode = "points" | "heat"
+
+// ────────────────────────────────────────────────────────────
+// component
+// ────────────────────────────────────────────────────────────
+export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId, pin }: SimplifiedMapProps) {
+  const [hover, setHover] = useState<
+    | { latlng: LatLng; pos: L.Point; value: number; lines: [number, number][] }
+    | null
+  >(null)
+  const [overMarker, setOverMarker] = useState(false)
+  const [isPanning, setIsPanning] = useState(false)
+  const [mode, setMode] = useState<ViewMode>("points")
+
+  /* ───────── heat‑layer ───────── */
+  function HeatLayer() {
+    const map = useMap()
+    const layerRef = useRef<L.Layer | null>(null)
+
+    // create a dedicated low‑z pane for the heatmap once
+    useEffect(() => {
+      if (!map.getPane("heatPane")) {
+        const p = map.createPane("heatPane")
+        p.style.zIndex = "300" // below markerPane (600) & overlayPane (400)
+      }
+    }, [map])
+
+    const baseRadius = 18
+    const build = () => {
+      const zoom = map.getZoom()
+      const radius = baseRadius * (zoom / 6)
+      const pts: [number, number, number][] = suburbData.map((s) => [s.coordinate.lat, s.coordinate.lon, s.score / 10])
+      return (L as any).heatLayer(pts, {
+        radius,
+        blur: radius * 0.8,
+        minOpacity: 0.5,
+        pane: "heatPane",
+        gradient: { 0: "#ff7070", 0.4: "#ffd866", 0.8: "#7dd87d" },
+      })
+    }
+
+    useEffect(() => {
+      if (mode === "heat") {
+        if (layerRef.current) map.removeLayer(layerRef.current)
+        layerRef.current = build().addTo(map)
+        const rebuild = () => {
+          if (layerRef.current) map.removeLayer(layerRef.current)
+          layerRef.current = build().addTo(map)
+        }
+        map.on("zoomend", rebuild)
+        return () => {
+          map.off("zoomend", rebuild)
+          if (layerRef.current) map.removeLayer(layerRef.current)
+        }
+      } else if (layerRef.current) {
+        map.removeLayer(layerRef.current)
+        layerRef.current = null
+      }
+    }, [map, mode])
+    return null
+  }
+
+  /* ───────── cursor tracker ───────── */
+  function CursorTracker() {
+    const map = useMap()
+    const raf = useRef<number | null>(null)
+    useMapEvents({
+      mousedown: () => setIsPanning(true),
+      dragend: () => setIsPanning(false),
+      mouseup: () => setIsPanning(false),
+      mousemove: (e) => {
+        if (raf.current) cancelAnimationFrame(raf.current)
+        raf.current = requestAnimationFrame(() => {
+          const { value, nearest } = idw(e.latlng.lat, e.latlng.lng)
+          setHover({
+            latlng: e.latlng,
+            pos: map.latLngToContainerPoint(e.latlng),
+            value: value ?? 0,
+            lines: nearest.slice(0, 3).map((n) => [n.coord.lat, n.coord.lon]),
+          })
+        })
+      },
+      mouseout: () => setHover(null),
+    })
+    return null
+  }
+
+  const showMarkers = mode === "points"
 
   return (
-    <div className="relative h-full w-full bg-gray-50">
-      <svg width="100%" height="100%" viewBox="0 0 100 100" className="overflow-visible">
-        {/* NSW outline - simplified */}
-        <path
-          d="M5,20 C10,10 30,5 50,5 C70,5 90,15 95,30 C100,45 95,70 85,85 C75,95 50,95 30,90 C10,85 0,60 5,20 Z"
-          fill="#f9fafb"
-          stroke="#e5e7eb"
-          strokeWidth="0.5"
-        />
-
-        {/* Render each suburb as a rectangle */}
-        {mockSuburbs.map((suburb) => (
-          <rect
-            key={suburb.id}
-            x={suburb.x}
-            y={suburb.y}
-            width={suburb.width}
-            height={suburb.height}
-            rx="2"
-            fill={selectedSuburbId === suburb.id ? "#ef4444" : hoveredSuburb === suburb.id ? "#fecaca" : "#fee2e2"}
-            stroke={selectedSuburbId === suburb.id ? "#b91c1c" : "#ef4444"}
-            strokeWidth="0.5"
-            onClick={() => onSuburbSelect(suburb.id)}
-            onMouseEnter={() => setHoveredSuburb(suburb.id)}
-            onMouseLeave={() => setHoveredSuburb(null)}
-            style={{ cursor: "pointer" }}
-          />
-        ))}
-
-        {/* Suburb labels */}
-        {mockSuburbs.map((suburb) => (
-          <text
-            key={`label-${suburb.id}`}
-            x={suburb.x + suburb.width / 2}
-            y={suburb.y + suburb.height / 2}
-            textAnchor="middle"
-            dominantBaseline="middle"
-            fontSize="2"
-            fill={selectedSuburbId === suburb.id ? "white" : "#111827"}
-            pointerEvents="none"
+    <div className="relative h-full w-full">
+      {/* mode buttons */}
+      <div className="absolute right-2 top-2 z-[1000] space-x-1 rounded bg-white/90 p-1 shadow">
+        {[
+          { key: "points", label: "Exact Points" },
+          { key: "heat", label: "Heatmap" },
+        ].map((b) => (
+          <button
+            key={b.key}
+            onClick={() => setMode(b.key as ViewMode)}
+            className={`rounded px-2 py-1 text-xs font-medium ${
+              mode === b.key ? "bg-red-600 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+            }`}
           >
-            {suburb.name}
-          </text>
+            {b.label}
+          </button>
         ))}
-      </svg>
-
-      <div className="absolute bottom-2 right-2 rounded bg-white p-2 text-xs text-gray-500 shadow-sm">
-        This is a simplified map for demonstration purposes.
       </div>
+
+      <MapContainer
+        center={[-32.5, 147] as LatLngExpression}
+        zoom={6}
+        className="h-full w-full"
+        style={{ cursor: overMarker ? "pointer" : isPanning ? "grabbing" : "crosshair" }}
+        scrollWheelZoom
+        preferCanvas
+      >
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <HeatLayer />
+
+        {/* suburb dots */}
+        {showMarkers &&
+          displayPoints.map((s) => (
+            <CircleMarker
+              key={s.suburb}
+              center={[s.coordinate.lat, s.coordinate.lon] as LatLngExpression}
+              radius={6}
+              pathOptions={{
+                color: selectedSuburbId === s.suburb ? "#000" : "#333",
+                weight: 1,
+                fillColor: scoreToColor(s.score),
+                fillOpacity: 0.9,
+              }}
+              eventHandlers={{
+                click: () => onSuburbSelect?.(s.suburb),
+                mouseover: () => setOverMarker(true),
+                mouseout: () => setOverMarker(false),
+              }}
+            >
+              <Tooltip direction="top" offset={[0, -6]} opacity={1} className="text-xs">
+                {`${s.suburb}: ${s.score}`}
+              </Tooltip>
+            </CircleMarker>
+          ))}
+
+        {/* search pin (always on top via markerPane) */}
+        {pin && (
+          <CircleMarker
+            center={[pin.lat, pin.lon] as LatLngExpression}
+            radius={9}
+            pane="markerPane"
+            pathOptions={{ color: "#1d4ed8", weight: 2, fillColor: "#3b82f6", fillOpacity: 0.95 }}
+          >
+            {pin.score !== undefined && (
+              <Tooltip
+                permanent
+                direction="top"
+                offset={[0, -12]}
+                opacity={1}
+                className="rounded bg-white px-2 py-[1px] text-[10px] font-medium text-gray-800 shadow"
+              >
+                Est. score {pin.score.toFixed(2)}
+              </Tooltip>
+            )}
+          </CircleMarker>
+        )}
+
+        {/* helper lines */}
+        {showMarkers && hover && !overMarker &&
+          hover.lines.map((latlon, i) => (
+            <Polyline
+              key={i}
+              interactive={false}
+              positions={[[latlon[0], latlon[1]], [hover.latlng.lat, hover.latlng.lng]] as LatLngExpression[]}
+              pathOptions={{ color: "#555", weight: 0.5, dashArray: "3" }}
+            />
+          ))}
+
+        <CursorTracker />
+
+        {hover && !overMarker && (
+          <div
+            className="pointer-events-none absolute z-[1000] rounded bg-white/80 px-2 py-1 text-xs text-gray-800 shadow"
+            style={{ left: hover.pos.x + 12, top: hover.pos.y - 12 }}
+          >
+            Est. score: {hover.value.toFixed(2)}
+          </div>
+        )}
+      </MapContainer>
     </div>
   )
 }
+
+// expose IDW helper
+export { idw }
