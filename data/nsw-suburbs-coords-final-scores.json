@@ -464,14 +464,6 @@
       "score": 7.9
     },
     {
-      "suburb": "WASHPOOL",
-      "coordinate": {
-        "lat": -27.8372,
-        "lon": 152.7675
-      },
-      "score": 4.0
-    },
-    {
       "suburb": "ELIZABETH BEACH",
       "coordinate": {
         "lat": -32.3316,
@@ -1518,14 +1510,6 @@
         "lon": 144.58861111111113
       },
       "score": 2.3
-    },
-    {
-      "suburb": "ARATULA",
-      "coordinate": {
-        "lat": -27.9813,
-        "lon": 152.5486
-      },
-      "score": 6.0
     },
     {
       "suburb": "JERILDERIE",
@@ -2606,14 +2590,6 @@
         "lon": 149.28333333333333
       },
       "score": 1.2
-    },
-    {
-      "suburb": "CADGEE",
-      "coordinate": {
-        "lat": -36.79186,
-        "lon": 140.70995
-      },
-      "score": 7.9
     },
     {
       "suburb": "NAROOMA",
