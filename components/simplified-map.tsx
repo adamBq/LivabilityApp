@@ -12,34 +12,34 @@ import {
 } from "react-leaflet"
 import L, { LatLngExpression, LatLng } from "leaflet"
 import "leaflet/dist/leaflet.css"
-import "leaflet.heat" // ← heat‑layer plugin
+import "leaflet.heat"
 
 import suburbData from "@/data/nsw-suburbs-coords-final-scores.json" assert { type: "json" }
 
 // ────────────────────────────────────────────────────────────
-//  Constants & helpers
+// helpers
 // ────────────────────────────────────────────────────────────
-const EXCLUDE_FROM_DISPLAY = ["CADGEE", "ARATULA", "WASHPOOL"]
-const displayPoints = suburbData.filter((s) => !EXCLUDE_FROM_DISPLAY.includes(s.suburb))
+const EXCLUDE = ["CADGEE", "ARATULA", "WASHPOOL"]
+const displayPoints = suburbData.filter((s) => !EXCLUDE.includes(s.suburb))
 
-function scoreToColor(score: number) {
-  const t = Math.max(0, Math.min(10, score)) / 10
+const scoreToColor = (v: number) => {
+  const t = Math.max(0, Math.min(10, v)) / 10
   return `rgb(${Math.round(255 * (1 - t))},${Math.round(255 * t)},0)`
 }
 
-function idw(lat: number, lon: number, k = 8, power = 2) {
-  const dists = suburbData.map(({ coordinate, score }) => ({
+const idw = (lat: number, lon: number, k = 8, p = 2) => {
+  const ds = suburbData.map(({ coordinate, score }) => ({
     d: L.latLng(lat, lon).distanceTo(L.latLng(coordinate.lat, coordinate.lon)),
     score,
     coord: coordinate,
   }))
-  dists.sort((a, b) => a.d - b.d)
-  const nearest = dists.slice(0, k)
+  ds.sort((a, b) => a.d - b.d)
+  const nearest = ds.slice(0, k)
   if (nearest[0].d < 1) return { value: nearest[0].score, nearest }
   let num = 0,
     den = 0
   nearest.forEach(({ d, score }) => {
-    const w = 1 / Math.pow(d, power)
+    const w = 1 / Math.pow(d, p)
     num += w * score
     den += w
   })
@@ -47,51 +47,52 @@ function idw(lat: number, lon: number, k = 8, power = 2) {
 }
 
 // ────────────────────────────────────────────────────────────
-//  Main component
+// types
 // ────────────────────────────────────────────────────────────
 interface SimplifiedMapProps {
   onSuburbSelect?: (id: string) => void
   selectedSuburbId?: string
+  pin?: { lat: number; lon: number; score?: number }
 }
 
 type ViewMode = "points" | "heat"
 
-export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId }: SimplifiedMapProps) {
+// ────────────────────────────────────────────────────────────
+// component
+// ────────────────────────────────────────────────────────────
+export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId, pin }: SimplifiedMapProps) {
   const [hover, setHover] = useState<
-    | {
-        latlng: LatLng
-        pos: L.Point
-        value: number
-        lines: [number, number][]
-      }
+    | { latlng: LatLng; pos: L.Point; value: number; lines: [number, number][] }
     | null
   >(null)
   const [overMarker, setOverMarker] = useState(false)
   const [isPanning, setIsPanning] = useState(false)
   const [mode, setMode] = useState<ViewMode>("points")
 
-  /* ───────── Heat‑layer management ───────── */
+  /* ───────── heat‑layer ───────── */
   function HeatLayer() {
     const map = useMap()
     const layerRef = useRef<L.Layer | null>(null)
-    const baseRadius = 18 // tweak here
+
+    // create a dedicated low‑z pane for the heatmap once
+    useEffect(() => {
+      if (!map.getPane("heatPane")) {
+        const p = map.createPane("heatPane")
+        p.style.zIndex = "300" // below markerPane (600) & overlayPane (400)
+      }
+    }, [map])
+
+    const baseRadius = 18
     const build = () => {
       const zoom = map.getZoom()
-      const radius = baseRadius * (zoom / 6) // scale a bit with zoom
-      const pts: [number, number, number][] = suburbData.map((s) => [
-        s.coordinate.lat,
-        s.coordinate.lon,
-        s.score / 10,
-      ])
+      const radius = baseRadius * (zoom / 6)
+      const pts: [number, number, number][] = suburbData.map((s) => [s.coordinate.lat, s.coordinate.lon, s.score / 10])
       return (L as any).heatLayer(pts, {
         radius,
         blur: radius * 0.8,
         minOpacity: 0.5,
-        gradient: {
-          0.0: "#ff7070",
-          0.4: "#ffd866",
-          0.8: "#7dd87d",
-        },
+        pane: "heatPane",
+        gradient: { 0: "#ff7070", 0.4: "#ffd866", 0.8: "#7dd87d" },
       })
     }
 
@@ -99,13 +100,13 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId }: Simp
       if (mode === "heat") {
         if (layerRef.current) map.removeLayer(layerRef.current)
         layerRef.current = build().addTo(map)
-        const handle = () => {
+        const rebuild = () => {
           if (layerRef.current) map.removeLayer(layerRef.current)
           layerRef.current = build().addTo(map)
         }
-        map.on("zoomend", handle)
+        map.on("zoomend", rebuild)
         return () => {
-          map.off("zoomend", handle)
+          map.off("zoomend", rebuild)
           if (layerRef.current) map.removeLayer(layerRef.current)
         }
       } else if (layerRef.current) {
@@ -116,11 +117,10 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId }: Simp
     return null
   }
 
-  /* ───────── Cursor tracker & IDW ───────── */
+  /* ───────── cursor tracker ───────── */
   function CursorTracker() {
     const map = useMap()
     const raf = useRef<number | null>(null)
-
     useMapEvents({
       mousedown: () => setIsPanning(true),
       dragend: () => setIsPanning(false),
@@ -129,10 +129,9 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId }: Simp
         if (raf.current) cancelAnimationFrame(raf.current)
         raf.current = requestAnimationFrame(() => {
           const { value, nearest } = idw(e.latlng.lat, e.latlng.lng)
-          const containerPoint = map.latLngToContainerPoint(e.latlng)
           setHover({
             latlng: e.latlng,
-            pos: containerPoint,
+            pos: map.latLngToContainerPoint(e.latlng),
             value: value ?? 0,
             lines: nearest.slice(0, 3).map((n) => [n.coord.lat, n.coord.lon]),
           })
@@ -144,22 +143,21 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId }: Simp
   }
 
   const showMarkers = mode === "points"
-  const showLines = mode === "points"
 
   return (
     <div className="relative h-full w-full">
-      {/* mode toggle */}
+      {/* mode buttons */}
       <div className="absolute right-2 top-2 z-[1000] space-x-1 rounded bg-white/90 p-1 shadow">
-        {([
+        {[
           { key: "points", label: "Exact Points" },
           { key: "heat", label: "Heatmap" },
-        ] as { key: ViewMode; label: string }[]).map((b) => (
+        ].map((b) => (
           <button
             key={b.key}
-            onClick={() => setMode(b.key)}
-            className={`px-2 py-1 text-xs font-medium ${
+            onClick={() => setMode(b.key as ViewMode)}
+            className={`rounded px-2 py-1 text-xs font-medium ${
               mode === b.key ? "bg-red-600 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-            } rounded`}
+            }`}
           >
             {b.label}
           </button>
@@ -175,10 +173,9 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId }: Simp
         preferCanvas
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-
         <HeatLayer />
 
-        {/* suburb markers */}
+        {/* suburb dots */}
         {showMarkers &&
           displayPoints.map((s) => (
             <CircleMarker
@@ -203,8 +200,30 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId }: Simp
             </CircleMarker>
           ))}
 
-        {/* helper polylines to nearest 3 suburbs */}
-        {showLines && hover && !overMarker &&
+        {/* search pin (always on top via markerPane) */}
+        {pin && (
+          <CircleMarker
+            center={[pin.lat, pin.lon] as LatLngExpression}
+            radius={9}
+            pane="markerPane"
+            pathOptions={{ color: "#1d4ed8", weight: 2, fillColor: "#3b82f6", fillOpacity: 0.95 }}
+          >
+            {pin.score !== undefined && (
+              <Tooltip
+                permanent
+                direction="top"
+                offset={[0, -12]}
+                opacity={1}
+                className="rounded bg-white px-2 py-[1px] text-[10px] font-medium text-gray-800 shadow"
+              >
+                Est. score {pin.score.toFixed(2)}
+              </Tooltip>
+            )}
+          </CircleMarker>
+        )}
+
+        {/* helper lines */}
+        {showMarkers && hover && !overMarker &&
           hover.lines.map((latlon, i) => (
             <Polyline
               key={i}
@@ -228,3 +247,6 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId }: Simp
     </div>
   )
 }
+
+// expose IDW helper
+export { idw }
