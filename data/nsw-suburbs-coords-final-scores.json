@@ -1,0 +1,3850 @@
+[
+    {
+      "suburb": "GOSFORD",
+      "coordinate": {
+        "lat": -33.416666666666664,
+        "lon": 151.33333333333334
+      },
+      "score": 4.9
+    },
+    {
+      "suburb": "KARIONG",
+      "coordinate": {
+        "lat": -33.44,
+        "lon": 151.301
+      },
+      "score": 7.2
+    },
+    {
+      "suburb": "LOWER MANGROVE",
+      "coordinate": {
+        "lat": -33.415,
+        "lon": 151.16
+      },
+      "score": 7.8
+    },
+    {
+      "suburb": "NORTH GOSFORD",
+      "coordinate": {
+        "lat": -33.415,
+        "lon": 151.351
+      },
+      "score": 4.4
+    },
+    {
+      "suburb": "TASCOTT",
+      "coordinate": {
+        "lat": -33.454,
+        "lon": 151.314
+      },
+      "score": 6.5
+    },
+    {
+      "suburb": "WENDOREE PARK",
+      "coordinate": {
+        "lat": -33.449,
+        "lon": 151.151
+      },
+      "score": 7.2
+    },
+    {
+      "suburb": "AVOCA BEACH",
+      "coordinate": {
+        "lat": -33.465,
+        "lon": 151.435
+      },
+      "score": 6.3
+    },
+    {
+      "suburb": "DAVISTOWN",
+      "coordinate": {
+        "lat": -33.482,
+        "lon": 151.36
+      },
+      "score": 1.4
+    },
+    {
+      "suburb": "MACMASTERS BEACH",
+      "coordinate": {
+        "lat": -33.49,
+        "lon": 151.426
+      },
+      "score": 3.9
+    },
+    {
+      "suburb": "KOOLEWONG",
+      "coordinate": {
+        "lat": -33.466,
+        "lon": 151.318
+      },
+      "score": 8.5
+    },
+    {
+      "suburb": "PHEGANS BAY",
+      "coordinate": {
+        "lat": -33.488,
+        "lon": 151.31
+      },
+      "score": 9.4
+    },
+    {
+      "suburb": "BOOKER BAY",
+      "coordinate": {
+        "lat": -33.513888888888886,
+        "lon": 151.3463888888889
+      },
+      "score": 9.7
+    },
+    {
+      "suburb": "ETTALONG BEACH",
+      "coordinate": {
+        "lat": -33.515,
+        "lon": 151.335
+      },
+      "score": 1.4
+    },
+    {
+      "suburb": "KILLCARE HEIGHTS",
+      "coordinate": {
+        "lat": -33.532,
+        "lon": 151.368
+      },
+      "score": 8.3
+    },
+    {
+      "suburb": "UMINA BEACH",
+      "coordinate": {
+        "lat": -33.518055555555556,
+        "lon": 151.31
+      },
+      "score": 5.4
+    },
+    {
+      "suburb": "FORRESTERS BEACH",
+      "coordinate": {
+        "lat": -33.407,
+        "lon": 151.476
+      },
+      "score": 0.0
+    },
+    {
+      "suburb": "WAMBERAL",
+      "coordinate": {
+        "lat": -33.418055555555554,
+        "lon": 151.44305555555556
+      },
+      "score": 6.7
+    },
+    {
+      "suburb": "OURIMBAH",
+      "coordinate": {
+        "lat": -33.365,
+        "lon": 151.36805555555557
+      },
+      "score": 3.0
+    },
+    {
+      "suburb": "CHAIN VALLEY BAY",
+      "coordinate": {
+        "lat": -33.169,
+        "lon": 151.575
+      },
+      "score": 2.4
+    },
+    {
+      "suburb": "DURREN DURREN",
+      "coordinate": {
+        "lat": -33.182,
+        "lon": 151.385
+      },
+      "score": 0.4
+    },
+    {
+      "suburb": "HAMLYN TERRACE",
+      "coordinate": {
+        "lat": -33.255,
+        "lon": 151.473
+      },
+      "score": 1.9
+    },
+    {
+      "suburb": "TUGGERAWONG",
+      "coordinate": {
+        "lat": -33.280833333333334,
+        "lon": 151.47583333333333
+      },
+      "score": 2.5
+    },
+    {
+      "suburb": "WARNERVALE",
+      "coordinate": {
+        "lat": -33.249,
+        "lon": 151.431
+      },
+      "score": 2.1
+    },
+    {
+      "suburb": "WYONG CREEK",
+      "coordinate": {
+        "lat": -33.265,
+        "lon": 151.368
+      },
+      "score": 9.3
+    },
+    {
+      "suburb": "BATEAU BAY",
+      "coordinate": {
+        "lat": -33.382,
+        "lon": 151.485
+      },
+      "score": 0.9
+    },
+    {
+      "suburb": "GLENNING VALLEY",
+      "coordinate": {
+        "lat": -33.348,
+        "lon": 151.418
+      },
+      "score": 8.3
+    },
+    {
+      "suburb": "TOOWOON BAY",
+      "coordinate": {
+        "lat": -33.357,
+        "lon": 151.493
+      },
+      "score": 6.0
+    },
+    {
+      "suburb": "BUDGEWOI",
+      "coordinate": {
+        "lat": -33.234,
+        "lon": 151.557
+      },
+      "score": 7.3
+    },
+    {
+      "suburb": "DOYALSON NORTH",
+      "coordinate": {
+        "lat": -33.187,
+        "lon": 151.543
+      },
+      "score": 8.7
+    },
+    {
+      "suburb": "CANTON BEACH",
+      "coordinate": {
+        "lat": -33.275,
+        "lon": 151.55
+      },
+      "score": 9.2
+    },
+    {
+      "suburb": "LAKE HAVEN",
+      "coordinate": {
+        "lat": -33.24,
+        "lon": 151.501
+      },
+      "score": 3.8
+    },
+    {
+      "suburb": "TOUKLEY",
+      "coordinate": {
+        "lat": -33.266666666666666,
+        "lon": 151.53333333333333
+      },
+      "score": 7.3
+    },
+    {
+      "suburb": "BURRAGA",
+      "coordinate": {
+        "lat": -33.95,
+        "lon": 149.54583333333332
+      },
+      "score": 7.8
+    },
+    {
+      "suburb": "COW FLAT",
+      "coordinate": {
+        "lat": -33.5625,
+        "lon": 149.525
+      },
+      "score": 8.5
+    },
+    {
+      "suburb": "YETHOLME",
+      "coordinate": {
+        "lat": -33.4475,
+        "lon": 149.8175
+      },
+      "score": 9.6
+    },
+    {
+      "suburb": "MANDURAMA",
+      "coordinate": {
+        "lat": -33.65,
+        "lon": 149.08333333333334
+      },
+      "score": 4.5
+    },
+    {
+      "suburb": "CONDOBOLIN",
+      "coordinate": {
+        "lat": -33.08861111111111,
+        "lon": 147.14944444444444
+      },
+      "score": 2.7
+    },
+    {
+      "suburb": "EUABALONG",
+      "coordinate": {
+        "lat": -33.11027777777778,
+        "lon": 146.46972222222223
+      },
+      "score": 4.0
+    },
+    {
+      "suburb": "EUGOWRA",
+      "coordinate": {
+        "lat": -33.43333333333333,
+        "lon": 148.36666666666667
+      },
+      "score": 1.1
+    },
+    {
+      "suburb": "BEN BULLEN",
+      "coordinate": {
+        "lat": -33.21944444444445,
+        "lon": 150.02194444444447
+      },
+      "score": 2.6
+    },
+    {
+      "suburb": "CULLEN BULLEN",
+      "coordinate": {
+        "lat": -33.3,
+        "lon": 150.01666666666668
+      },
+      "score": 8.8
+    },
+    {
+      "suburb": "WOLGAN VALLEY",
+      "coordinate": {
+        "lat": -33.230203,
+        "lon": 150.195469
+      },
+      "score": 6.9
+    },
+    {
+      "suburb": "FOREST REEFS",
+      "coordinate": {
+        "lat": -33.45477777777778,
+        "lon": 149.08625
+      },
+      "score": 1.0
+    },
+    {
+      "suburb": "MULLION CREEK",
+      "coordinate": {
+        "lat": -33.12583333333333,
+        "lon": 149.12694444444446
+      },
+      "score": 5.7
+    },
+    {
+      "suburb": "BOGAN GATE",
+      "coordinate": {
+        "lat": -33.11666666666667,
+        "lon": 147.81666666666666
+      },
+      "score": 4.2
+    },
+    {
+      "suburb": "UNGARIE",
+      "coordinate": {
+        "lat": -33.63333333333333,
+        "lon": 146.96666666666667
+      },
+      "score": 9.4
+    },
+    {
+      "suburb": "LAKE COWAL",
+      "coordinate": {
+        "lat": -33.583333333333336,
+        "lon": 147.41666666666666
+      },
+      "score": 6.6
+    },
+    {
+      "suburb": "BROKEN HILL",
+      "coordinate": {
+        "lat": -31.95,
+        "lon": 141.46666666666667
+      },
+      "score": 1.0
+    },
+    {
+      "suburb": "CONGEWAI",
+      "coordinate": {
+        "lat": -32.96527777777778,
+        "lon": 151.2688888888889
+      },
+      "score": 0.9
+    },
+    {
+      "suburb": "DUNGOG",
+      "coordinate": {
+        "lat": -32.39833333333333,
+        "lon": 151.7525
+      },
+      "score": 6.7
+    },
+    {
+      "suburb": "COAL POINT",
+      "coordinate": {
+        "lat": -33.037,
+        "lon": 151.61
+      },
+      "score": 2.5
+    },
+    {
+      "suburb": "FISHING POINT",
+      "coordinate": {
+        "lat": -33.057,
+        "lon": 151.596
+      },
+      "score": 9.7
+    },
+    {
+      "suburb": "BUNGWAHL",
+      "coordinate": {
+        "lat": -32.4,
+        "lon": 152.45
+      },
+      "score": 9.7
+    },
+    {
+      "suburb": "TUNCURRY",
+      "coordinate": {
+        "lat": -32.175,
+        "lon": 152.49888888888887
+      },
+      "score": 1.6
+    },
+    {
+      "suburb": "KRAMBACH",
+      "coordinate": {
+        "lat": -32.05,
+        "lon": 152.26666666666668
+      },
+      "score": 1.6
+    },
+    {
+      "suburb": "WAUKIVORY",
+      "coordinate": {
+        "lat": -32.10673562021,
+        "lon": 152.05112775504
+      },
+      "score": 2.0
+    },
+    {
+      "suburb": "KARUAH",
+      "coordinate": {
+        "lat": -32.643055555555556,
+        "lon": 151.9572222222222
+      },
+      "score": 2.9
+    },
+    {
+      "suburb": "COOLONGOLOOK",
+      "coordinate": {
+        "lat": -32.21666666666667,
+        "lon": 152.31666666666666
+      },
+      "score": 7.9
+    },
+    {
+      "suburb": "WASHPOOL",
+      "coordinate": {
+        "lat": -27.8372,
+        "lon": 152.7675
+      },
+      "score": 4.0
+    },
+    {
+      "suburb": "ELIZABETH BEACH",
+      "coordinate": {
+        "lat": -32.3316,
+        "lon": 152.537
+      },
+      "score": 9.8
+    },
+    {
+      "suburb": "MULBRING",
+      "coordinate": {
+        "lat": -32.906666666666666,
+        "lon": 151.49277777777777
+      },
+      "score": 1.9
+    },
+    {
+      "suburb": "KURRI KURRI",
+      "coordinate": {
+        "lat": -32.81666666666667,
+        "lon": 151.48333333333332
+      },
+      "score": 3.3
+    },
+    {
+      "suburb": "BELMONT SOUTH",
+      "coordinate": {
+        "lat": -33.049,
+        "lon": 151.651
+      },
+      "score": 8.1
+    },
+    {
+      "suburb": "CAVES BEACH",
+      "coordinate": {
+        "lat": -33.115,
+        "lon": 151.651
+      },
+      "score": 2.7
+    },
+    {
+      "suburb": "MURRAYS BEACH",
+      "coordinate": {
+        "lat": -33.118429,
+        "lon": 151.61682
+      },
+      "score": 5.6
+    },
+    {
+      "suburb": "PINNY BEACH",
+      "coordinate": {
+        "lat": -33.117,
+        "lon": 151.634
+      },
+      "score": 7.3
+    },
+    {
+      "suburb": "ELEEBANA",
+      "coordinate": {
+        "lat": -32.996,
+        "lon": 151.635
+      },
+      "score": 0.6
+    },
+    {
+      "suburb": "MARMONG POINT",
+      "coordinate": {
+        "lat": -32.982,
+        "lon": 151.618
+      },
+      "score": 1.1
+    },
+    {
+      "suburb": "CARDIFF HEIGHTS",
+      "coordinate": {
+        "lat": -32.911035,
+        "lon": 151.618744
+      },
+      "score": 9.1
+    },
+    {
+      "suburb": "SEAHAMPTON",
+      "coordinate": {
+        "lat": -32.924,
+        "lon": 151.585
+      },
+      "score": 8.3
+    },
+    {
+      "suburb": "KAHIBAH",
+      "coordinate": {
+        "lat": -32.967,
+        "lon": 151.717
+      },
+      "score": 3.4
+    },
+    {
+      "suburb": "TINGIRA HEIGHTS",
+      "coordinate": {
+        "lat": -32.996,
+        "lon": 151.66
+      },
+      "score": 6.7
+    },
+    {
+      "suburb": "FREEMANS WATERHOLE",
+      "coordinate": {
+        "lat": -32.98166666666667,
+        "lon": 151.48444444444442
+      },
+      "score": 9.2
+    },
+    {
+      "suburb": "ANAMBAH",
+      "coordinate": {
+        "lat": -32.675,
+        "lon": 151.49166666666665
+      },
+      "score": 4.8
+    },
+    {
+      "suburb": "MINDARIBBA",
+      "coordinate": {
+        "lat": -32.665,
+        "lon": 151.5844
+      },
+      "score": 7.6
+    },
+    {
+      "suburb": "SOUTH MAITLAND",
+      "coordinate": {
+        "lat": -32.74277777777778,
+        "lon": 151.5638888888889
+      },
+      "score": 0.3
+    },
+    {
+      "suburb": "BERRY PARK",
+      "coordinate": {
+        "lat": -32.74,
+        "lon": 151.65666666666667
+      },
+      "score": 7.4
+    },
+    {
+      "suburb": "GILLIESTON HEIGHTS",
+      "coordinate": {
+        "lat": -32.765,
+        "lon": 151.53444444444443
+      },
+      "score": 9.6
+    },
+    {
+      "suburb": "BERESFIELD",
+      "coordinate": {
+        "lat": -32.799,
+        "lon": 151.635
+      },
+      "score": 4.0
+    },
+    {
+      "suburb": "LENAGHAN",
+      "coordinate": {
+        "lat": -32.848,
+        "lon": 151.629
+      },
+      "score": 2.2
+    },
+    {
+      "suburb": "EAST MAITLAND",
+      "coordinate": {
+        "lat": -32.751666666666665,
+        "lon": 151.59
+      },
+      "score": 1.5
+    },
+    {
+      "suburb": "VACY",
+      "coordinate": {
+        "lat": -32.53138888888889,
+        "lon": 151.5688888888889
+      },
+      "score": 0.6
+    },
+    {
+      "suburb": "WYEE POINT",
+      "coordinate": {
+        "lat": -33.14,
+        "lon": 151.526
+      },
+      "score": 2.7
+    },
+    {
+      "suburb": "MANDALONG",
+      "coordinate": {
+        "lat": -33.132,
+        "lon": 151.426
+      },
+      "score": 5.4
+    },
+    {
+      "suburb": "MORISSET PARK",
+      "coordinate": {
+        "lat": -33.121,
+        "lon": 151.535
+      },
+      "score": 3.4
+    },
+    {
+      "suburb": "RANKIN PARK",
+      "coordinate": {
+        "lat": -32.932,
+        "lon": 151.668
+      },
+      "score": 6.8
+    },
+    {
+      "suburb": "KOTARA SOUTH",
+      "coordinate": {
+        "lat": -32.951,
+        "lon": 151.691
+      },
+      "score": 0.6
+    },
+    {
+      "suburb": "FERN BAY",
+      "coordinate": {
+        "lat": -32.87388888888889,
+        "lon": 151.795
+      },
+      "score": 5.7
+    },
+    {
+      "suburb": "TIGHES HILL",
+      "coordinate": {
+        "lat": -32.898,
+        "lon": 151.751
+      },
+      "score": 9.8
+    },
+    {
+      "suburb": "WARATAH WEST",
+      "coordinate": {
+        "lat": -32.901111111111106,
+        "lon": 151.71499999999997
+      },
+      "score": 1.6
+    },
+    {
+      "suburb": "NORTH LAMBTON",
+      "coordinate": {
+        "lat": -32.904,
+        "lon": 151.704
+      },
+      "score": 3.2
+    },
+    {
+      "suburb": "NEWCASTLE EAST",
+      "coordinate": {
+        "lat": -32.92916666666667,
+        "lon": 151.7876388888889
+      },
+      "score": 5.2
+    },
+    {
+      "suburb": "KOORAGANG",
+      "coordinate": {
+        "lat": -32.876111111111115,
+        "lon": 151.76777777777778
+      },
+      "score": 9.7
+    },
+    {
+      "suburb": "MAYFIELD NORTH",
+      "coordinate": {
+        "lat": -32.89,
+        "lon": 151.743
+      },
+      "score": 5.8
+    },
+    {
+      "suburb": "WARABROOK",
+      "coordinate": {
+        "lat": -32.88166666666667,
+        "lon": 151.71777777777777
+      },
+      "score": 2.8
+    },
+    {
+      "suburb": "NEW LAMBTON HEIGHTS",
+      "coordinate": {
+        "lat": -32.915,
+        "lon": 151.701
+      },
+      "score": 7.9
+    },
+    {
+      "suburb": "CORLETTE",
+      "coordinate": {
+        "lat": -32.724722222222226,
+        "lon": 152.1147222222222
+      },
+      "score": 9.5
+    },
+    {
+      "suburb": "BOBS FARM",
+      "coordinate": {
+        "lat": -32.77638888888889,
+        "lon": 151.9725
+      },
+      "score": 3.7
+    },
+    {
+      "suburb": "TAYLORS BEACH",
+      "coordinate": {
+        "lat": -32.75111111111111,
+        "lon": 152.06777777777776
+      },
+      "score": 0.1
+    },
+    {
+      "suburb": "MALLABULA",
+      "coordinate": {
+        "lat": -32.735,
+        "lon": 152.01
+      },
+      "score": 0.5
+    },
+    {
+      "suburb": "FERODALE",
+      "coordinate": {
+        "lat": -32.681666666666665,
+        "lon": 151.8511111111111
+      },
+      "score": 0.8
+    },
+    {
+      "suburb": "EAST SEAHAM",
+      "coordinate": {
+        "lat": -32.64,
+        "lon": 151.7483333333333
+      },
+      "score": 4.7
+    },
+    {
+      "suburb": "NELSONS PLAINS",
+      "coordinate": {
+        "lat": -32.715,
+        "lon": 151.71777777777777
+      },
+      "score": 7.0
+    },
+    {
+      "suburb": "GLENDON BROOK",
+      "coordinate": {
+        "lat": -32.52222222222222,
+        "lon": 151.33333333333334
+      },
+      "score": 6.6
+    },
+    {
+      "suburb": "CALLALA BEACH",
+      "coordinate": {
+        "lat": -35.00338888888889,
+        "lon": 150.7
+      },
+      "score": 7.8
+    },
+    {
+      "suburb": "CURRARONG",
+      "coordinate": {
+        "lat": -35.0175,
+        "lon": 150.8225
+      },
+      "score": 3.7
+    },
+    {
+      "suburb": "PYREE",
+      "coordinate": {
+        "lat": -34.908055555555556,
+        "lon": 150.68555555555557
+      },
+      "score": 8.9
+    },
+    {
+      "suburb": "CARRINGTON FALLS",
+      "coordinate": {
+        "lat": -34.62444444444444,
+        "lon": 150.65472222222223
+      },
+      "score": 7.7
+    },
+    {
+      "suburb": "UPPER KANGAROO RIVER",
+      "coordinate": {
+        "lat": -34.71,
+        "lon": 150.58027777777778
+      },
+      "score": 2.3
+    },
+    {
+      "suburb": "KIAMA",
+      "coordinate": {
+        "lat": -34.670833333333334,
+        "lon": 150.85416666666666
+      },
+      "score": 2.2
+    },
+    {
+      "suburb": "MINNAMURRA",
+      "coordinate": {
+        "lat": -34.625,
+        "lon": 150.85194444444443
+      },
+      "score": 1.0
+    },
+    {
+      "suburb": "FOXGROUND",
+      "coordinate": {
+        "lat": -34.717354,
+        "lon": 150.770648
+      },
+      "score": 6.1
+    },
+    {
+      "suburb": "MITTAGONG",
+      "coordinate": {
+        "lat": -34.45,
+        "lon": 150.45
+      },
+      "score": 1.9
+    },
+    {
+      "suburb": "YERRINBOOL",
+      "coordinate": {
+        "lat": -34.36666666666667,
+        "lon": 150.55
+      },
+      "score": 2.1
+    },
+    {
+      "suburb": "EAST BOWRAL",
+      "coordinate": {
+        "lat": -34.49944444444444,
+        "lon": 150.45944444444444
+      },
+      "score": 4.6
+    },
+    {
+      "suburb": "KANGALOON",
+      "coordinate": {
+        "lat": -34.55,
+        "lon": 150.53333333333333
+      },
+      "score": 4.7
+    },
+    {
+      "suburb": "MOSS VALE",
+      "coordinate": {
+        "lat": -34.55,
+        "lon": 150.38333333333333
+      },
+      "score": 5.9
+    },
+    {
+      "suburb": "SUTTON FOREST",
+      "coordinate": {
+        "lat": -34.56666666666667,
+        "lon": 150.31666666666666
+      },
+      "score": 1.7
+    },
+    {
+      "suburb": "BUNDANOON",
+      "coordinate": {
+        "lat": -34.65,
+        "lon": 150.3
+      },
+      "score": 8.3
+    },
+    {
+      "suburb": "WINGELLO",
+      "coordinate": {
+        "lat": -34.7,
+        "lon": 150.16666666666666
+      },
+      "score": 4.8
+    },
+    {
+      "suburb": "TERARA",
+      "coordinate": {
+        "lat": -34.862500000000004,
+        "lon": 150.62833333333333
+      },
+      "score": 8.6
+    },
+    {
+      "suburb": "YALWAL",
+      "coordinate": {
+        "lat": -34.93333333333333,
+        "lon": 150.38333333333333
+      },
+      "score": 5.5
+    },
+    {
+      "suburb": "BOMADERRY",
+      "coordinate": {
+        "lat": -34.848,
+        "lon": 150.605
+      },
+      "score": 8.6
+    },
+    {
+      "suburb": "WEST NOWRA",
+      "coordinate": {
+        "lat": -34.88944444444444,
+        "lon": 150.58333333333334
+      },
+      "score": 0.6
+    },
+    {
+      "suburb": "ALBION PARK",
+      "coordinate": {
+        "lat": -34.56666666666667,
+        "lon": 150.8
+      },
+      "score": 5.4
+    },
+    {
+      "suburb": "OAK FLATS",
+      "coordinate": {
+        "lat": -34.56194444444444,
+        "lon": 150.8188888888889
+      },
+      "score": 5.5
+    },
+    {
+      "suburb": "SHELLHARBOUR CITY CENTRE",
+      "coordinate": {
+        "lat": -34.56333333333333,
+        "lon": 150.83833333333334
+      },
+      "score": 0.9
+    },
+    {
+      "suburb": "BREAM BEACH",
+      "coordinate": {
+        "lat": -35.10861111111111,
+        "lon": 150.66166666666666
+      },
+      "score": 8.5
+    },
+    {
+      "suburb": "HYAMS BEACH",
+      "coordinate": {
+        "lat": -35.10025,
+        "lon": 150.69191
+      },
+      "score": 3.0
+    },
+    {
+      "suburb": "SANCTUARY POINT",
+      "coordinate": {
+        "lat": -35.103611111111114,
+        "lon": 150.62666666666667
+      },
+      "score": 9.2
+    },
+    {
+      "suburb": "WORROWING HEIGHTS",
+      "coordinate": {
+        "lat": -35.07944444444445,
+        "lon": 150.63861111111112
+      },
+      "score": 8.8
+    },
+    {
+      "suburb": "CUDMIRRAH",
+      "coordinate": {
+        "lat": -35.19833333333333,
+        "lon": 150.5575
+      },
+      "score": 3.9
+    },
+    {
+      "suburb": "BENDALONG",
+      "coordinate": {
+        "lat": -35.246,
+        "lon": 150.533
+      },
+      "score": 9.7
+    },
+    {
+      "suburb": "CUNJURONG POINT",
+      "coordinate": {
+        "lat": -35.2575,
+        "lon": 150.50805555555556
+      },
+      "score": 3.5
+    },
+    {
+      "suburb": "LAKE TABOURIE",
+      "coordinate": {
+        "lat": -35.448611111111106,
+        "lon": 150.4011111111111
+      },
+      "score": 2.9
+    },
+    {
+      "suburb": "MOLLYMOOK BEACH",
+      "coordinate": {
+        "lat": -35.323888888888895,
+        "lon": 150.4738888888889
+      },
+      "score": 7.5
+    },
+    {
+      "suburb": "MOUNT KEIRA",
+      "coordinate": {
+        "lat": -34.4,
+        "lon": 150.85
+      },
+      "score": 6.6
+    },
+    {
+      "suburb": "PRIMBEE",
+      "coordinate": {
+        "lat": -34.50083333333333,
+        "lon": 150.88166666666666
+      },
+      "score": 6.1
+    },
+    {
+      "suburb": "DARKES FOREST",
+      "coordinate": {
+        "lat": -34.219722222222224,
+        "lon": 150.9063888888889
+      },
+      "score": 9.2
+    },
+    {
+      "suburb": "THIRROUL",
+      "coordinate": {
+        "lat": -34.31647222222222,
+        "lon": 150.9188611111111
+      },
+      "score": 0.2
+    },
+    {
+      "suburb": "RUSSELL VALE",
+      "coordinate": {
+        "lat": -34.358,
+        "lon": 150.901
+      },
+      "score": 7.0
+    },
+    {
+      "suburb": "BELLAMBI",
+      "coordinate": {
+        "lat": -34.36666666666667,
+        "lon": 150.91666666666666
+      },
+      "score": 3.4
+    },
+    {
+      "suburb": "EAST CORRIMAL",
+      "coordinate": {
+        "lat": -34.37638888888889,
+        "lon": 150.91083333333333
+      },
+      "score": 4.8
+    },
+    {
+      "suburb": "MOUNT OUSLEY",
+      "coordinate": {
+        "lat": -34.4,
+        "lon": 150.86666666666667
+      },
+      "score": 4.4
+    },
+    {
+      "suburb": "CORDEAUX HEIGHTS",
+      "coordinate": {
+        "lat": -34.43966666666667,
+        "lon": 150.83433333333335
+      },
+      "score": 2.0
+    },
+    {
+      "suburb": "KEMBLA GRANGE",
+      "coordinate": {
+        "lat": -34.465833333333336,
+        "lon": 150.81722222222223
+      },
+      "score": 2.2
+    },
+    {
+      "suburb": "UNANDERRA",
+      "coordinate": {
+        "lat": -34.453611111111115,
+        "lon": 150.84472222222223
+      },
+      "score": 2.0
+    },
+    {
+      "suburb": "KANAHOOKA",
+      "coordinate": {
+        "lat": -34.49166666666667,
+        "lon": 150.80833333333334
+      },
+      "score": 1.6
+    },
+    {
+      "suburb": "WONGAWILLI",
+      "coordinate": {
+        "lat": -34.475,
+        "lon": 150.75833333333333
+      },
+      "score": 2.1
+    },
+    {
+      "suburb": "BOSTOBRICK",
+      "coordinate": {
+        "lat": -30.274,
+        "lon": 152.6285
+      },
+      "score": 1.0
+    },
+    {
+      "suburb": "BONVILLE",
+      "coordinate": {
+        "lat": -30.383333333333333,
+        "lon": 153.05
+      },
+      "score": 5.1
+    },
+    {
+      "suburb": "COFFS HARBOUR",
+      "coordinate": {
+        "lat": -30.302222222222223,
+        "lon": 153.1188888888889
+      },
+      "score": 4.2
+    },
+    {
+      "suburb": "MOONEE BEACH",
+      "coordinate": {
+        "lat": -30.205277777777777,
+        "lon": 153.15194444444444
+      },
+      "score": 8.9
+    },
+    {
+      "suburb": "BARYULGIL",
+      "coordinate": {
+        "lat": -29.216666666666665,
+        "lon": 152.58333333333334
+      },
+      "score": 5.6
+    },
+    {
+      "suburb": "CANGAI",
+      "coordinate": {
+        "lat": -29.50647222222222,
+        "lon": 152.4806111111111
+      },
+      "score": 4.8
+    },
+    {
+      "suburb": "COUTTS CROSSING",
+      "coordinate": {
+        "lat": -29.816666666666666,
+        "lon": 152.88333333333333
+      },
+      "score": 3.8
+    },
+    {
+      "suburb": "DILKOON",
+      "coordinate": {
+        "lat": -29.5,
+        "lon": 152.98333333333332
+      },
+      "score": 2.6
+    },
+    {
+      "suburb": "JUNCTION HILL",
+      "coordinate": {
+        "lat": -29.633333333333333,
+        "lon": 152.91666666666666
+      },
+      "score": 5.0
+    },
+    {
+      "suburb": "WATERVIEW HEIGHTS",
+      "coordinate": {
+        "lat": -29.70238,
+        "lon": 152.83823
+      },
+      "score": 4.4
+    },
+    {
+      "suburb": "WEST KEMPSEY",
+      "coordinate": {
+        "lat": -31.05757,
+        "lon": 152.82794
+      },
+      "score": 0.1
+    },
+    {
+      "suburb": "WARRELL CREEK",
+      "coordinate": {
+        "lat": -30.766666666666666,
+        "lon": 152.88333333333333
+      },
+      "score": 4.7
+    },
+    {
+      "suburb": "GULMARRAD",
+      "coordinate": {
+        "lat": -29.483333333333334,
+        "lon": 153.23333333333332
+      },
+      "score": 6.8
+    },
+    {
+      "suburb": "WOOMBAH",
+      "coordinate": {
+        "lat": -29.35611111111111,
+        "lon": 153.27694444444447
+      },
+      "score": 5.8
+    },
+    {
+      "suburb": "ARAKOON",
+      "coordinate": {
+        "lat": -30.883152777777777,
+        "lon": 153.07154444444444
+      },
+      "score": 9.8
+    },
+    {
+      "suburb": "CROWDY HEAD",
+      "coordinate": {
+        "lat": -31.845,
+        "lon": 152.755
+      },
+      "score": 3.1
+    },
+    {
+      "suburb": "KILLABAKH",
+      "coordinate": {
+        "lat": -31.733333333333334,
+        "lon": 152.38333333333333
+      },
+      "score": 5.0
+    },
+    {
+      "suburb": "MANNING POINT",
+      "coordinate": {
+        "lat": -31.915,
+        "lon": 152.66777777777776
+      },
+      "score": 3.4
+    },
+    {
+      "suburb": "OLD BAR",
+      "coordinate": {
+        "lat": -31.966666666666665,
+        "lon": 152.58333333333334
+      },
+      "score": 7.8
+    },
+    {
+      "suburb": "TAREE",
+      "coordinate": {
+        "lat": -31.9,
+        "lon": 152.45
+      },
+      "score": 1.7
+    },
+    {
+      "suburb": "MYLESTOM",
+      "coordinate": {
+        "lat": -30.45,
+        "lon": 153.05
+      },
+      "score": 2.4
+    },
+    {
+      "suburb": "URUNGA",
+      "coordinate": {
+        "lat": -30.5,
+        "lon": 153.01666666666668
+      },
+      "score": 4.9
+    },
+    {
+      "suburb": "ROLLANDS PLAINS",
+      "coordinate": {
+        "lat": -31.35,
+        "lon": 152.8
+      },
+      "score": 9.1
+    },
+    {
+      "suburb": "CORINDI BEACH",
+      "coordinate": {
+        "lat": -30.016666666666666,
+        "lon": 153.2
+      },
+      "score": 7.0
+    },
+    {
+      "suburb": "ALBURY",
+      "coordinate": {
+        "lat": -36.080555555555556,
+        "lon": 146.91583333333335
+      },
+      "score": 8.4
+    },
+    {
+      "suburb": "NORTH ALBURY",
+      "coordinate": {
+        "lat": -36.06,
+        "lon": 146.93
+      },
+      "score": 0.9
+    },
+    {
+      "suburb": "SPLITTERS CREEK",
+      "coordinate": {
+        "lat": -36.06,
+        "lon": 146.84
+      },
+      "score": 7.0
+    },
+    {
+      "suburb": "THURGOONA",
+      "coordinate": {
+        "lat": -36.05,
+        "lon": 146.98333333333332
+      },
+      "score": 3.9
+    },
+    {
+      "suburb": "HAMILTON VALLEY",
+      "coordinate": {
+        "lat": -36.038,
+        "lon": 146.92
+      },
+      "score": 8.9
+    },
+    {
+      "suburb": "BIDGEEMIA",
+      "coordinate": {
+        "lat": -35.44,
+        "lon": 146.42999999999998
+      },
+      "score": 5.2
+    },
+    {
+      "suburb": "GREG GREG",
+      "coordinate": {
+        "lat": -36.06625,
+        "lon": 148.02855555555556
+      },
+      "score": 1.6
+    },
+    {
+      "suburb": "KHANCOBAN",
+      "coordinate": {
+        "lat": -36.22,
+        "lon": 148.12694444444446
+      },
+      "score": 4.2
+    },
+    {
+      "suburb": "BURRABOI",
+      "coordinate": {
+        "lat": -35.333333333333336,
+        "lon": 144.4
+      },
+      "score": 3.8
+    },
+    {
+      "suburb": "BALLDALE",
+      "coordinate": {
+        "lat": -35.85,
+        "lon": 146.51666666666668
+      },
+      "score": 4.5
+    },
+    {
+      "suburb": "CONARGO",
+      "coordinate": {
+        "lat": -35.31666666666667,
+        "lon": 145.15
+      },
+      "score": 0.4
+    },
+    {
+      "suburb": "MAYRUNG",
+      "coordinate": {
+        "lat": -35.46527777777778,
+        "lon": 145.28472222222223
+      },
+      "score": 5.3
+    },
+    {
+      "suburb": "PRETTY PINE",
+      "coordinate": {
+        "lat": -35.416666666666664,
+        "lon": 144.86666666666667
+      },
+      "score": 2.6
+    },
+    {
+      "suburb": "WAKOOL",
+      "coordinate": {
+        "lat": -35.46666666666667,
+        "lon": 144.38333333333333
+      },
+      "score": 6.8
+    },
+    {
+      "suburb": "WARRAGOON",
+      "coordinate": {
+        "lat": -35.6,
+        "lon": 145.2
+      },
+      "score": 7.0
+    },
+    {
+      "suburb": "TUPPAL",
+      "coordinate": {
+        "lat": -35.68333333333333,
+        "lon": 145.3
+      },
+      "score": 4.7
+    },
+    {
+      "suburb": "WOMBOOTA",
+      "coordinate": {
+        "lat": -35.956944444444446,
+        "lon": 144.58861111111113
+      },
+      "score": 2.3
+    },
+    {
+      "suburb": "ARATULA",
+      "coordinate": {
+        "lat": -27.9813,
+        "lon": 152.5486
+      },
+      "score": 6.0
+    },
+    {
+      "suburb": "JERILDERIE",
+      "coordinate": {
+        "lat": -35.35,
+        "lon": 145.73333333333332
+      },
+      "score": 7.7
+    },
+    {
+      "suburb": "POONCARIE",
+      "coordinate": {
+        "lat": -33.38333333333333,
+        "lon": 142.56666666666666
+      },
+      "score": 9.0
+    },
+    {
+      "suburb": "METHUL",
+      "coordinate": {
+        "lat": -34.6,
+        "lon": 147.15
+      },
+      "score": 8.4
+    },
+    {
+      "suburb": "STOCKINBINGAL",
+      "coordinate": {
+        "lat": -34.5,
+        "lon": 147.88333333333333
+      },
+      "score": 1.3
+    },
+    {
+      "suburb": "MERRIWAGGA",
+      "coordinate": {
+        "lat": -33.82,
+        "lon": 145.62222222222223
+      },
+      "score": 1.0
+    },
+    {
+      "suburb": "BINYA",
+      "coordinate": {
+        "lat": -34.22944444444445,
+        "lon": 146.3477777777778
+      },
+      "score": 4.0
+    },
+    {
+      "suburb": "LAKE WYANGAN",
+      "coordinate": {
+        "lat": -34.218297,
+        "lon": 146.02139
+      },
+      "score": 2.0
+    },
+    {
+      "suburb": "WARBURN",
+      "coordinate": {
+        "lat": -34.176944444444445,
+        "lon": 145.9361111111111
+      },
+      "score": 8.1
+    },
+    {
+      "suburb": "WILLBRIGGIE",
+      "coordinate": {
+        "lat": -34.46666666666667,
+        "lon": 146.01666666666668
+      },
+      "score": 7.7
+    },
+    {
+      "suburb": "YENDA",
+      "coordinate": {
+        "lat": -34.25,
+        "lon": 146.17083333333332
+      },
+      "score": 1.1
+    },
+    {
+      "suburb": "CARRATHOOL",
+      "coordinate": {
+        "lat": -34.416666666666664,
+        "lon": 145.43333333333334
+      },
+      "score": 1.6
+    },
+    {
+      "suburb": "JUGIONG",
+      "coordinate": {
+        "lat": -34.823055555555555,
+        "lon": 148.32472222222222
+      },
+      "score": 3.6
+    },
+    {
+      "suburb": "GOBARRALONG",
+      "coordinate": {
+        "lat": -35.035555555555554,
+        "lon": 148.32444444444445
+      },
+      "score": 8.8
+    },
+    {
+      "suburb": "ILLABO",
+      "coordinate": {
+        "lat": -34.81666666666667,
+        "lon": 147.75
+      },
+      "score": 0.8
+    },
+    {
+      "suburb": "GRONG GRONG",
+      "coordinate": {
+        "lat": -34.71666666666667,
+        "lon": 146.78333333333333
+      },
+      "score": 9.5
+    },
+    {
+      "suburb": "NARRANDERA",
+      "coordinate": {
+        "lat": -34.75,
+        "lon": 146.55
+      },
+      "score": 0.2
+    },
+    {
+      "suburb": "ARIAH PARK",
+      "coordinate": {
+        "lat": -34.31666666666667,
+        "lon": 147.21666666666667
+      },
+      "score": 8.0
+    },
+    {
+      "suburb": "COMBANING",
+      "coordinate": {
+        "lat": -34.45861111111111,
+        "lon": 147.6822222222222
+      },
+      "score": 7.3
+    },
+    {
+      "suburb": "TUMBARUMBA",
+      "coordinate": {
+        "lat": -35.78333333333333,
+        "lon": 148.01666666666668
+      },
+      "score": 8.7
+    },
+    {
+      "suburb": "URANA",
+      "coordinate": {
+        "lat": -35.31666666666667,
+        "lon": 146.26666666666668
+      },
+      "score": 0.8
+    },
+    {
+      "suburb": "BOOROOMA",
+      "coordinate": {
+        "lat": -35.07401388888889,
+        "lon": 147.365425
+      },
+      "score": 0.3
+    },
+    {
+      "suburb": "CARABOST",
+      "coordinate": {
+        "lat": -35.6,
+        "lon": 147.71666666666667
+      },
+      "score": 8.7
+    },
+    {
+      "suburb": "COOKARDINIA",
+      "coordinate": {
+        "lat": -35.56666666666667,
+        "lon": 147.21666666666667
+      },
+      "score": 3.4
+    },
+    {
+      "suburb": "EAST WAGGA WAGGA",
+      "coordinate": {
+        "lat": -35.1212,
+        "lon": 147.38546666666667
+      },
+      "score": 6.0
+    },
+    {
+      "suburb": "EUNANOREENYA",
+      "coordinate": {
+        "lat": -35.065,
+        "lon": 147.46777777777777
+      },
+      "score": 2.5
+    },
+    {
+      "suburb": "GLENFIELD PARK",
+      "coordinate": {
+        "lat": -35.13612777777778,
+        "lon": 147.33207777777778
+      },
+      "score": 5.2
+    },
+    {
+      "suburb": "MOORONG",
+      "coordinate": {
+        "lat": -35.114066666666666,
+        "lon": 147.31526666666667
+      },
+      "score": 5.8
+    },
+    {
+      "suburb": "WAGGA WAGGA",
+      "coordinate": {
+        "lat": -35.11888888888889,
+        "lon": 147.3688888888889
+      },
+      "score": 9.6
+    },
+    {
+      "suburb": "HUMULA",
+      "coordinate": {
+        "lat": -35.483333333333334,
+        "lon": 147.75
+      },
+      "score": 1.8
+    },
+    {
+      "suburb": "KAPOOKA",
+      "coordinate": {
+        "lat": -35.15212777777778,
+        "lon": 147.30207777777778
+      },
+      "score": 3.4
+    },
+    {
+      "suburb": "PREMER",
+      "coordinate": {
+        "lat": -31.466666666666665,
+        "lon": 149.9
+      },
+      "score": 9.2
+    },
+    {
+      "suburb": "DUNEDOO",
+      "coordinate": {
+        "lat": -32.016666666666666,
+        "lon": 149.4
+      },
+      "score": 7.4
+    },
+    {
+      "suburb": "GWABEGAR",
+      "coordinate": {
+        "lat": -30.616666666666667,
+        "lon": 148.98333333333332
+      },
+      "score": 9.5
+    },
+    {
+      "suburb": "MULLALEY",
+      "coordinate": {
+        "lat": -31.1,
+        "lon": 149.91666666666666
+      },
+      "score": 2.0
+    },
+    {
+      "suburb": "BINNAWAY",
+      "coordinate": {
+        "lat": -31.55,
+        "lon": 149.38333333333333
+      },
+      "score": 9.9
+    },
+    {
+      "suburb": "GILGANDRA",
+      "coordinate": {
+        "lat": -31.7,
+        "lon": 148.66666666666666
+      },
+      "score": 1.6
+    },
+    {
+      "suburb": "GULARGAMBONE",
+      "coordinate": {
+        "lat": -31.333333333333332,
+        "lon": 148.46666666666667
+      },
+      "score": 9.5
+    },
+    {
+      "suburb": "COONAMBLE",
+      "coordinate": {
+        "lat": -30.95,
+        "lon": 148.4
+      },
+      "score": 9.9
+    },
+    {
+      "suburb": "CLANDULLA",
+      "coordinate": {
+        "lat": -32.91694444444444,
+        "lon": 149.9511111111111
+      },
+      "score": 6.1
+    },
+    {
+      "suburb": "BREAKFAST CREEK",
+      "coordinate": {
+        "lat": -27.441944444444445,
+        "lon": 153.04749999999999
+      },
+      "score": 8.9
+    },
+    {
+      "suburb": "TRANGIE",
+      "coordinate": {
+        "lat": -32.03333333333333,
+        "lon": 147.98333333333332
+      },
+      "score": 5.9
+    },
+    {
+      "suburb": "BODANGORA",
+      "coordinate": {
+        "lat": -32.55,
+        "lon": 148.93333333333334
+      },
+      "score": 8.0
+    },
+    {
+      "suburb": "LAKE BURRENDONG",
+      "coordinate": {
+        "lat": -32.666666666666664,
+        "lon": 149.13333333333333
+      },
+      "score": 1.3
+    },
+    {
+      "suburb": "MUMBIL",
+      "coordinate": {
+        "lat": -32.71666666666667,
+        "lon": 149.05
+      },
+      "score": 5.5
+    },
+    {
+      "suburb": "STUART TOWN",
+      "coordinate": {
+        "lat": -32.8,
+        "lon": 149.08333333333334
+      },
+      "score": 0.7
+    },
+    {
+      "suburb": "YULLUNDRY",
+      "coordinate": {
+        "lat": -32.833333333333336,
+        "lon": 148.68333333333334
+      },
+      "score": 7.9
+    },
+    {
+      "suburb": "ARMIDALE",
+      "coordinate": {
+        "lat": -30.5,
+        "lon": 151.65
+      },
+      "score": 4.4
+    },
+    {
+      "suburb": "DANGARSLEIGH",
+      "coordinate": {
+        "lat": -30.6,
+        "lon": 151.68333333333334
+      },
+      "score": 9.8
+    },
+    {
+      "suburb": "TULLOONA",
+      "coordinate": {
+        "lat": -28.8154,
+        "lon": 153.3187
+      },
+      "score": 1.2
+    },
+    {
+      "suburb": "GUNNEDAH",
+      "coordinate": {
+        "lat": -30.966666666666665,
+        "lon": 150.25
+      },
+      "score": 2.1
+    },
+    {
+      "suburb": "GUYRA",
+      "coordinate": {
+        "lat": -30.2,
+        "lon": 151.66666666666666
+      },
+      "score": 3.3
+    },
+    {
+      "suburb": "WARIALDA",
+      "coordinate": {
+        "lat": -29.533333333333335,
+        "lon": 150.56666666666666
+      },
+      "score": 4.2
+    },
+    {
+      "suburb": "BINGARA",
+      "coordinate": {
+        "lat": -29.866666666666667,
+        "lon": 150.56666666666666
+      },
+      "score": 4.6
+    },
+    {
+      "suburb": "GARAH",
+      "coordinate": {
+        "lat": -29.05,
+        "lon": 149.61666666666667
+      },
+      "score": 2.4
+    },
+    {
+      "suburb": "BAAN BAA",
+      "coordinate": {
+        "lat": -30.6,
+        "lon": 149.93333333333334
+      },
+      "score": 3.4
+    },
+    {
+      "suburb": "ARDGLEN",
+      "coordinate": {
+        "lat": -31.75,
+        "lon": 150.78333333333333
+      },
+      "score": 8.2
+    },
+    {
+      "suburb": "CALALA",
+      "coordinate": {
+        "lat": -31.133333333333333,
+        "lon": 150.95
+      },
+      "score": 7.1
+    },
+    {
+      "suburb": "NEMINGHA",
+      "coordinate": {
+        "lat": -31.108333333333334,
+        "lon": 150.99166666666665
+      },
+      "score": 8.8
+    },
+    {
+      "suburb": "SOUTH TAMWORTH",
+      "coordinate": {
+        "lat": -31.111111111111114,
+        "lon": 150.91361111111112
+      },
+      "score": 9.0
+    },
+    {
+      "suburb": "WEABONGA",
+      "coordinate": {
+        "lat": -31.35,
+        "lon": 151.53333333333333
+      },
+      "score": 4.4
+    },
+    {
+      "suburb": "SANDY FLAT",
+      "coordinate": {
+        "lat": -29.25,
+        "lon": 151.98333333333332
+      },
+      "score": 7.7
+    },
+    {
+      "suburb": "NIANGALA",
+      "coordinate": {
+        "lat": -31.298333333333336,
+        "lon": 151.40944444444446
+      },
+      "score": 8.4
+    },
+    {
+      "suburb": "WALCHA ROAD",
+      "coordinate": {
+        "lat": -30.95,
+        "lon": 151.4
+      },
+      "score": 5.0
+    },
+    {
+      "suburb": "YARROWITCH",
+      "coordinate": {
+        "lat": -31.266666666666666,
+        "lon": 151.96666666666667
+      },
+      "score": 0.2
+    },
+    {
+      "suburb": "COLLY BLUE",
+      "coordinate": {
+        "lat": -31.455277777777777,
+        "lon": 150.14305555555555
+      },
+      "score": 6.2
+    },
+    {
+      "suburb": "ALSTONVALE",
+      "coordinate": {
+        "lat": -28.79527777777778,
+        "lon": 153.4488888888889
+      },
+      "score": 5.7
+    },
+    {
+      "suburb": "BURRINGBAR",
+      "coordinate": {
+        "lat": -28.416666666666668,
+        "lon": 153.33333333333334
+      },
+      "score": 3.6
+    },
+    {
+      "suburb": "UPPER BURRINGBAR",
+      "coordinate": {
+        "lat": -28.45,
+        "lon": 153.45
+      },
+      "score": 3.0
+    },
+    {
+      "suburb": "BANGALOW",
+      "coordinate": {
+        "lat": -28.7,
+        "lon": 153.51666666666668
+      },
+      "score": 4.5
+    },
+    {
+      "suburb": "EWINGSDALE",
+      "coordinate": {
+        "lat": -28.636388888888888,
+        "lon": 153.55444444444444
+      },
+      "score": 8.5
+    },
+    {
+      "suburb": "SUFFOLK PARK",
+      "coordinate": {
+        "lat": -28.683333333333334,
+        "lon": 153.61666666666667
+      },
+      "score": 1.1
+    },
+    {
+      "suburb": "TABULAM",
+      "coordinate": {
+        "lat": -28.883333333333333,
+        "lon": 152.56666666666666
+      },
+      "score": 1.3
+    },
+    {
+      "suburb": "DOUBTFUL CREEK",
+      "coordinate": {
+        "lat": -36.1,
+        "lon": 148.43333333333334
+      },
+      "score": 7.0
+    },
+    {
+      "suburb": "SHANNON BROOK",
+      "coordinate": {
+        "lat": -28.924166666666668,
+        "lon": 153.1602777777778
+      },
+      "score": 3.7
+    },
+    {
+      "suburb": "CORAKI",
+      "coordinate": {
+        "lat": -28.983333333333334,
+        "lon": 153.3
+      },
+      "score": 7.3
+    },
+    {
+      "suburb": "TUCKI TUCKI",
+      "coordinate": {
+        "lat": -28.929166666666667,
+        "lon": 153.3138888888889
+      },
+      "score": 9.8
+    },
+    {
+      "suburb": "EVANS HEAD",
+      "coordinate": {
+        "lat": -29.116666666666667,
+        "lon": 153.43333333333334
+      },
+      "score": 1.9
+    },
+    {
+      "suburb": "CUDGERA CREEK",
+      "coordinate": {
+        "lat": -28.383333333333333,
+        "lon": 153.51666666666668
+      },
+      "score": 6.5
+    },
+    {
+      "suburb": "CHINDERAH",
+      "coordinate": {
+        "lat": -28.237222222222222,
+        "lon": 153.55694444444447
+      },
+      "score": 2.4
+    },
+    {
+      "suburb": "BOGANGAR",
+      "coordinate": {
+        "lat": -28.3318,
+        "lon": 153.5596
+      },
+      "score": 5.0
+    },
+    {
+      "suburb": "TUMBULGUM",
+      "coordinate": {
+        "lat": -28.283333333333335,
+        "lon": 153.48333333333332
+      },
+      "score": 4.9
+    },
+    {
+      "suburb": "CAWONGLA",
+      "coordinate": {
+        "lat": -28.6,
+        "lon": 153.1
+      },
+      "score": 8.8
+    },
+    {
+      "suburb": "TOOLOOM",
+      "coordinate": {
+        "lat": -28.44638888888889,
+        "lon": 152.4536111111111
+      },
+      "score": 8.2
+    },
+    {
+      "suburb": "JIGGI",
+      "coordinate": {
+        "lat": -28.68166666666667,
+        "lon": 153.18444444444444
+      },
+      "score": 6.8
+    },
+    {
+      "suburb": "MAROM CREEK",
+      "coordinate": {
+        "lat": -28.903055555555554,
+        "lon": 153.37416666666667
+      },
+      "score": 1.5
+    },
+    {
+      "suburb": "MODANVILLE",
+      "coordinate": {
+        "lat": -28.71527777777778,
+        "lon": 153.3011111111111
+      },
+      "score": 6.6
+    },
+    {
+      "suburb": "WYRALLAH",
+      "coordinate": {
+        "lat": -28.9,
+        "lon": 153.3
+      },
+      "score": 1.0
+    },
+    {
+      "suburb": "GOONENGERRY",
+      "coordinate": {
+        "lat": -28.610555555555557,
+        "lon": 153.43944444444446
+      },
+      "score": 2.6
+    },
+    {
+      "suburb": "MONTECOLLUM",
+      "coordinate": {
+        "lat": -28.58888888888889,
+        "lon": 153.46416666666664
+      },
+      "score": 5.9
+    },
+    {
+      "suburb": "UPPER COOPERS CREEK",
+      "coordinate": {
+        "lat": -28.598333333333333,
+        "lon": 153.4011111111111
+      },
+      "score": 0.8
+    },
+    {
+      "suburb": "BYRRILL CREEK",
+      "coordinate": {
+        "lat": -28.44,
+        "lon": 153.28222222222223
+      },
+      "score": 1.2
+    },
+    {
+      "suburb": "CHOWAN CREEK",
+      "coordinate": {
+        "lat": -28.450833333333332,
+        "lon": 153.37222222222223
+      },
+      "score": 1.9
+    },
+    {
+      "suburb": "DUNGAY",
+      "coordinate": {
+        "lat": -28.283333333333335,
+        "lon": 153.36666666666667
+      },
+      "score": 4.4
+    },
+    {
+      "suburb": "FARRANTS HILL",
+      "coordinate": {
+        "lat": -28.317777777777778,
+        "lon": 153.48555555555555
+      },
+      "score": 9.4
+    },
+    {
+      "suburb": "KYNNUMBOON",
+      "coordinate": {
+        "lat": -28.314722222222223,
+        "lon": 153.3838888888889
+      },
+      "score": 3.1
+    },
+    {
+      "suburb": "RESERVE CREEK",
+      "coordinate": {
+        "lat": -28.35,
+        "lon": 153.51666666666668
+      },
+      "score": 1.4
+    },
+    {
+      "suburb": "SOUTH MURWILLUMBAH",
+      "coordinate": {
+        "lat": -28.3402,
+        "lon": 153.4133
+      },
+      "score": 7.6
+    },
+    {
+      "suburb": "TOMEWIN",
+      "coordinate": {
+        "lat": -28.253888888888888,
+        "lon": 153.37083333333334
+      },
+      "score": 0.7
+    },
+    {
+      "suburb": "TYGALGAH",
+      "coordinate": {
+        "lat": -28.298055555555557,
+        "lon": 153.42638888888888
+      },
+      "score": 4.9
+    },
+    {
+      "suburb": "TWEED HEADS",
+      "coordinate": {
+        "lat": -28.183333333333334,
+        "lon": 153.55
+      },
+      "score": 6.9
+    },
+    {
+      "suburb": "BILAMBIL HEIGHTS",
+      "coordinate": {
+        "lat": -28.214,
+        "lon": 153.485
+      },
+      "score": 8.6
+    },
+    {
+      "suburb": "BATEMANS BAY",
+      "coordinate": {
+        "lat": -35.70805555555556,
+        "lon": 150.17444444444445
+      },
+      "score": 4.5
+    },
+    {
+      "suburb": "GUERILLA BAY",
+      "coordinate": {
+        "lat": -35.82944444444445,
+        "lon": 150.21833333333333
+      },
+      "score": 8.2
+    },
+    {
+      "suburb": "BROGO",
+      "coordinate": {
+        "lat": -36.54541944444444,
+        "lon": 149.80722222222224
+      },
+      "score": 6.0
+    },
+    {
+      "suburb": "BALLALABA",
+      "coordinate": {
+        "lat": -35.59916666666667,
+        "lon": 149.6338888888889
+      },
+      "score": 6.6
+    },
+    {
+      "suburb": "DURRAN DURRA",
+      "coordinate": {
+        "lat": -35.31583333333333,
+        "lon": 149.8838888888889
+      },
+      "score": 2.5
+    },
+    {
+      "suburb": "KRAWARREE",
+      "coordinate": {
+        "lat": -35.8325,
+        "lon": 149.6338888888889
+      },
+      "score": 7.9
+    },
+    {
+      "suburb": "OALLEN",
+      "coordinate": {
+        "lat": -35.13916666666667,
+        "lon": 149.94333333333333
+      },
+      "score": 8.8
+    },
+    {
+      "suburb": "LOWER BORO",
+      "coordinate": {
+        "lat": -35.191111111111105,
+        "lon": 149.78805555555556
+      },
+      "score": 1.0
+    },
+    {
+      "suburb": "BREDBO",
+      "coordinate": {
+        "lat": -35.95,
+        "lon": 149.15
+      },
+      "score": 0.2
+    },
+    {
+      "suburb": "COOLRINGDON",
+      "coordinate": {
+        "lat": -36.25083333333333,
+        "lon": 149.01527777777778
+      },
+      "score": 4.2
+    },
+    {
+      "suburb": "DAIRYMANS PLAINS",
+      "coordinate": {
+        "lat": -36.215833333333336,
+        "lon": 149.05055555555558
+      },
+      "score": 0.5
+    },
+    {
+      "suburb": "JERANGLE",
+      "coordinate": {
+        "lat": -35.87027777777778,
+        "lon": 149.36499999999998
+      },
+      "score": 3.5
+    },
+    {
+      "suburb": "NIMMITABEL",
+      "coordinate": {
+        "lat": -36.5,
+        "lon": 149.28333333333333
+      },
+      "score": 8.8
+    },
+    {
+      "suburb": "BIBBENLUKE",
+      "coordinate": {
+        "lat": -36.81305555555555,
+        "lon": 149.28805555555556
+      },
+      "score": 1.8
+    },
+    {
+      "suburb": "CURRAWEELA",
+      "coordinate": {
+        "lat": -34.2825,
+        "lon": 149.7838888888889
+      },
+      "score": 9.6
+    },
+    {
+      "suburb": "NARRAWA",
+      "coordinate": {
+        "lat": -34.43555555555555,
+        "lon": 149.15944444444446
+      },
+      "score": 1.0
+    },
+    {
+      "suburb": "BOURNDA",
+      "coordinate": {
+        "lat": -36.47666666666667,
+        "lon": 149.9186111111111
+      },
+      "score": 7.8
+    },
+    {
+      "suburb": "TURA BEACH",
+      "coordinate": {
+        "lat": -36.85,
+        "lon": 149.92499999999998
+      },
+      "score": 1.6
+    },
+    {
+      "suburb": "PAMBULA BEACH",
+      "coordinate": {
+        "lat": -36.93333333333333,
+        "lon": 149.9
+      },
+      "score": 0.2
+    },
+    {
+      "suburb": "WOLUMLA",
+      "coordinate": {
+        "lat": -36.833333333333336,
+        "lon": 149.80833333333334
+      },
+      "score": 3.1
+    },
+    {
+      "suburb": "BUNGONIA",
+      "coordinate": {
+        "lat": -34.85666666666667,
+        "lon": 149.94333333333333
+      },
+      "score": 4.3
+    },
+    {
+      "suburb": "CURRAWANG",
+      "coordinate": {
+        "lat": -34.965833333333336,
+        "lon": 149.51722222222224
+      },
+      "score": 9.7
+    },
+    {
+      "suburb": "GUNDARY",
+      "coordinate": {
+        "lat": -34.83166666666667,
+        "lon": 149.7511111111111
+      },
+      "score": 0.6
+    },
+    {
+      "suburb": "PARKESBOURNE",
+      "coordinate": {
+        "lat": -34.7484244967,
+        "lon": 149.53453061299
+      },
+      "score": 9.6
+    },
+    {
+      "suburb": "TOWRANG",
+      "coordinate": {
+        "lat": -34.69027777777777,
+        "lon": 149.85277777777776
+      },
+      "score": 9.4
+    },
+    {
+      "suburb": "CULLERIN",
+      "coordinate": {
+        "lat": -34.778055555555554,
+        "lon": 149.35805555555555
+      },
+      "score": 5.4
+    },
+    {
+      "suburb": "PERISHER VALLEY",
+      "coordinate": {
+        "lat": -36.4,
+        "lon": 148.41666666666666
+      },
+      "score": 4.4
+    },
+    {
+      "suburb": "JINDABYNE",
+      "coordinate": {
+        "lat": -36.4,
+        "lon": 148.61666666666667
+      },
+      "score": 1.9
+    },
+    {
+      "suburb": "BROULEE",
+      "coordinate": {
+        "lat": -35.8572,
+        "lon": 150.1789
+      },
+      "score": 3.8
+    },
+    {
+      "suburb": "DEUA RIVER VALLEY",
+      "coordinate": {
+        "lat": -35.7736,
+        "lon": 149.9423
+      },
+      "score": 8.3
+    },
+    {
+      "suburb": "MOSSY POINT",
+      "coordinate": {
+        "lat": -35.8398,
+        "lon": 150.1781
+      },
+      "score": 1.9
+    },
+    {
+      "suburb": "TUROSS HEAD",
+      "coordinate": {
+        "lat": -36.06666666666667,
+        "lon": 150.13333333333333
+      },
+      "score": 2.8
+    },
+    {
+      "suburb": "NERRIGUNDAH",
+      "coordinate": {
+        "lat": -36.11666666666667,
+        "lon": 149.9
+      },
+      "score": 5.5
+    },
+    {
+      "suburb": "GUNDAROO",
+      "coordinate": {
+        "lat": -35.03333333333333,
+        "lon": 149.28333333333333
+      },
+      "score": 1.2
+    },
+    {
+      "suburb": "CADGEE",
+      "coordinate": {
+        "lat": -36.79186,
+        "lon": 140.70995
+      },
+      "score": 7.9
+    },
+    {
+      "suburb": "NAROOMA",
+      "coordinate": {
+        "lat": -36.2,
+        "lon": 150.13333333333333
+      },
+      "score": 0.8
+    },
+    {
+      "suburb": "WALLAGA LAKE",
+      "coordinate": {
+        "lat": -36.365,
+        "lon": 150.055
+      },
+      "score": 4.4
+    },
+    {
+      "suburb": "CARWOOLA",
+      "coordinate": {
+        "lat": -35.3642,
+        "lon": 149.3275
+      },
+      "score": 4.9
+    },
+    {
+      "suburb": "ENVIRONA",
+      "coordinate": {
+        "lat": -35.4,
+        "lon": 149.18333333333334
+      },
+      "score": 7.2
+    },
+    {
+      "suburb": "KARABAR",
+      "coordinate": {
+        "lat": -35.36666666666667,
+        "lon": 149.23333333333332
+      },
+      "score": 9.0
+    },
+    {
+      "suburb": "QUEANBEYAN EAST",
+      "coordinate": {
+        "lat": -35.34527777777778,
+        "lon": 149.2461111111111
+      },
+      "score": 8.9
+    },
+    {
+      "suburb": "TINDERRY",
+      "coordinate": {
+        "lat": -35.69916666666666,
+        "lon": 149.31722222222223
+      },
+      "score": 6.0
+    },
+    {
+      "suburb": "WAMBOIN",
+      "coordinate": {
+        "lat": -35.25833333333333,
+        "lon": 149.30694444444447
+      },
+      "score": 9.9
+    },
+    {
+      "suburb": "ANEMBO",
+      "coordinate": {
+        "lat": -35.81583333333333,
+        "lon": 149.41722222222222
+      },
+      "score": 6.7
+    },
+    {
+      "suburb": "BEVENDALE",
+      "coordinate": {
+        "lat": -34.53333333333333,
+        "lon": 149.11666666666667
+      },
+      "score": 10.0
+    },
+    {
+      "suburb": "LADE VALE",
+      "coordinate": {
+        "lat": -34.846944444444446,
+        "lon": 149.1513888888889
+      },
+      "score": 0.5
+    },
+    {
+      "suburb": "KANGIARA",
+      "coordinate": {
+        "lat": -34.60305555555556,
+        "lon": 148.75694444444446
+      },
+      "score": 8.3
+    },
+    {
+      "suburb": "LIDCOMBE",
+      "coordinate": {
+        "lat": -33.86462,
+        "lon": 151.04563
+      },
+      "score": 7.9
+    },
+    {
+      "suburb": "GREENACRE",
+      "coordinate": {
+        "lat": -33.909166666666664,
+        "lon": 151.05333333333334
+      },
+      "score": 9.3
+    },
+    {
+      "suburb": "WILEY PARK",
+      "coordinate": {
+        "lat": -33.92583333333333,
+        "lon": 151.06333333333333
+      },
+      "score": 4.4
+    },
+    {
+      "suburb": "GEORGES HALL",
+      "coordinate": {
+        "lat": -33.91217,
+        "lon": 150.98557
+      },
+      "score": 9.6
+    },
+    {
+      "suburb": "BASS HILL",
+      "coordinate": {
+        "lat": -33.90083333333333,
+        "lon": 150.99499999999998
+      },
+      "score": 6.7
+    },
+    {
+      "suburb": "MOUNT KURING-GAI",
+      "coordinate": {
+        "lat": -33.64543,
+        "lon": 151.13115
+      },
+      "score": 2.7
+    },
+    {
+      "suburb": "BEROWRA CREEK",
+      "coordinate": {
+        "lat": -33.53845,
+        "lon": 151.1442417
+      },
+      "score": 9.7
+    },
+    {
+      "suburb": "WENTWORTH FALLS",
+      "coordinate": {
+        "lat": -33.71666666666667,
+        "lon": 150.36666666666667
+      },
+      "score": 4.7
+    },
+    {
+      "suburb": "LALOR PARK",
+      "coordinate": {
+        "lat": -33.766666666666666,
+        "lon": 150.92777777777778
+      },
+      "score": 6.9
+    },
+    {
+      "suburb": "ARNDELL PARK",
+      "coordinate": {
+        "lat": -33.79,
+        "lon": 150.876
+      },
+      "score": 1.6
+    },
+    {
+      "suburb": "MARAYONG",
+      "coordinate": {
+        "lat": -33.75,
+        "lon": 150.9083
+      },
+      "score": 6.8
+    },
+    {
+      "suburb": "DOONSIDE",
+      "coordinate": {
+        "lat": -33.7694,
+        "lon": 150.8666
+      },
+      "score": 4.5
+    },
+    {
+      "suburb": "PARKLEA",
+      "coordinate": {
+        "lat": -33.7291,
+        "lon": 150.919
+      },
+      "score": 6.3
+    },
+    {
+      "suburb": "EASTLAKES",
+      "coordinate": {
+        "lat": -33.931666666666665,
+        "lon": 151.21027777777778
+      },
+      "score": 8.6
+    },
+    {
+      "suburb": "PORT BOTANY",
+      "coordinate": {
+        "lat": -33.976,
+        "lon": 151.218
+      },
+      "score": 0.2
+    },
+    {
+      "suburb": "WEROMBI",
+      "coordinate": {
+        "lat": -33.9818,
+        "lon": 150.58459
+      },
+      "score": 1.8
+    },
+    {
+      "suburb": "PHEASANTS NEST",
+      "coordinate": {
+        "lat": -34.25597,
+        "lon": 150.6356
+      },
+      "score": 6.8
+    },
+    {
+      "suburb": "EAGLE VALE",
+      "coordinate": {
+        "lat": -34.03686,
+        "lon": 150.81144
+      },
+      "score": 9.5
+    },
+    {
+      "suburb": "BLAIRMOUNT",
+      "coordinate": {
+        "lat": -34.04881,
+        "lon": 150.78734
+      },
+      "score": 1.5
+    },
+    {
+      "suburb": "AMBARVALE",
+      "coordinate": {
+        "lat": -34.08333,
+        "lon": 150.80067
+      },
+      "score": 8.5
+    },
+    {
+      "suburb": "ENGLORIE PARK",
+      "coordinate": {
+        "lat": -34.082,
+        "lon": 150.794
+      },
+      "score": 0.3
+    },
+    {
+      "suburb": "KENTLYN",
+      "coordinate": {
+        "lat": -34.051944444444445,
+        "lon": 150.87805555555556
+      },
+      "score": 7.0
+    },
+    {
+      "suburb": "ROSEMEADOW",
+      "coordinate": {
+        "lat": -34.107,
+        "lon": 150.793
+      },
+      "score": 2.0
+    },
+    {
+      "suburb": "MACQUARIE LINKS",
+      "coordinate": {
+        "lat": -33.981944444444444,
+        "lon": 150.8738888888889
+      },
+      "score": 3.5
+    },
+    {
+      "suburb": "MINTO HEIGHTS",
+      "coordinate": {
+        "lat": -34.03111111111111,
+        "lon": 150.87416666666667
+      },
+      "score": 4.4
+    },
+    {
+      "suburb": "RODD POINT",
+      "coordinate": {
+        "lat": -33.86607,
+        "lon": 151.14366
+      },
+      "score": 7.7
+    },
+    {
+      "suburb": "DRUMMOYNE",
+      "coordinate": {
+        "lat": -33.85352,
+        "lon": 151.15402
+      },
+      "score": 9.6
+    },
+    {
+      "suburb": "EARLWOOD",
+      "coordinate": {
+        "lat": -33.92018,
+        "lon": 151.12682
+      },
+      "score": 3.9
+    },
+    {
+      "suburb": "ANNANGROVE",
+      "coordinate": {
+        "lat": -33.65255,
+        "lon": 150.94096
+      },
+      "score": 9.3
+    },
+    {
+      "suburb": "CANOELANDS",
+      "coordinate": {
+        "lat": -33.50824,
+        "lon": 151.06178
+      },
+      "score": 4.7
+    },
+    {
+      "suburb": "DURAL",
+      "coordinate": {
+        "lat": -33.68194444444444,
+        "lon": 151.0288888888889
+      },
+      "score": 3.5
+    },
+    {
+      "suburb": "CONCORD WEST",
+      "coordinate": {
+        "lat": -33.84416,
+        "lon": 151.09021
+      },
+      "score": 4.3
+    },
+    {
+      "suburb": "YENNORA",
+      "coordinate": {
+        "lat": -33.86277777777778,
+        "lon": 150.9661111111111
+      },
+      "score": 7.7
+    },
+    {
+      "suburb": "WETHERILL PARK",
+      "coordinate": {
+        "lat": -33.849722222222226,
+        "lon": 150.91111111111113
+      },
+      "score": 6.4
+    },
+    {
+      "suburb": "FAIRFIELD EAST",
+      "coordinate": {
+        "lat": -33.87177,
+        "lon": 150.97346
+      },
+      "score": 7.7
+    },
+    {
+      "suburb": "LANSVALE",
+      "coordinate": {
+        "lat": -33.89456,
+        "lon": 150.95437
+      },
+      "score": 5.2
+    },
+    {
+      "suburb": "TERREY HILLS",
+      "coordinate": {
+        "lat": -33.68888888888888,
+        "lon": 151.22083333333333
+      },
+      "score": 8.4
+    },
+    {
+      "suburb": "MILSONS PASSAGE",
+      "coordinate": {
+        "lat": -33.517,
+        "lon": 151.176
+      },
+      "score": 7.2
+    },
+    {
+      "suburb": "BULLABURRA",
+      "coordinate": {
+        "lat": -33.725833333333334,
+        "lon": 150.4127777777778
+      },
+      "score": 9.6
+    },
+    {
+      "suburb": "GREYSTANES",
+      "coordinate": {
+        "lat": -33.823244,
+        "lon": 150.9436333
+      },
+      "score": 1.4
+    },
+    {
+      "suburb": "SOUTH WENTWORTHVILLE",
+      "coordinate": {
+        "lat": -33.82333333333334,
+        "lon": 150.96527777777777
+      },
+      "score": 9.5
+    },
+    {
+      "suburb": "MERRYLANDS WEST",
+      "coordinate": {
+        "lat": -33.837500000000006,
+        "lon": 150.96166666666664
+      },
+      "score": 9.2
+    },
+    {
+      "suburb": "MOUNT COLAH",
+      "coordinate": {
+        "lat": -33.66382,
+        "lon": 151.11341
+      },
+      "score": 3.3
+    },
+    {
+      "suburb": "PENNANT HILLS",
+      "coordinate": {
+        "lat": -33.74236,
+        "lon": 151.06643
+      },
+      "score": 1.9
+    },
+    {
+      "suburb": "WEST PENNANT HILLS",
+      "coordinate": {
+        "lat": -33.748,
+        "lon": 151.034
+      },
+      "score": 0.7
+    },
+    {
+      "suburb": "BORONIA PARK",
+      "coordinate": {
+        "lat": -33.825,
+        "lon": 151.14166666666665
+      },
+      "score": 4.5
+    },
+    {
+      "suburb": "HUNTLEYS POINT",
+      "coordinate": {
+        "lat": -33.839,
+        "lon": 151.147
+      },
+      "score": 5.3
+    },
+    {
+      "suburb": "KINGSGROVE",
+      "coordinate": {
+        "lat": -33.939166666666665,
+        "lon": 151.1013888888889
+      },
+      "score": 3.5
+    },
+    {
+      "suburb": "NARWEE",
+      "coordinate": {
+        "lat": -33.9475,
+        "lon": 151.07083333333333
+      },
+      "score": 6.5
+    },
+    {
+      "suburb": "PEAKHURST HEIGHTS",
+      "coordinate": {
+        "lat": -33.98166666666667,
+        "lon": 151.0511111111111
+      },
+      "score": 1.4
+    },
+    {
+      "suburb": "SOUTH HURSTVILLE",
+      "coordinate": {
+        "lat": -33.980000000000004,
+        "lon": 151.1036111111111
+      },
+      "score": 5.5
+    },
+    {
+      "suburb": "KOGARAH",
+      "coordinate": {
+        "lat": -33.9674,
+        "lon": 151.13648
+      },
+      "score": 4.3
+    },
+    {
+      "suburb": "CONNELLS POINT",
+      "coordinate": {
+        "lat": -33.9825,
+        "lon": 151.10027777777776
+      },
+      "score": 8.9
+    },
+    {
+      "suburb": "KILLARA",
+      "coordinate": {
+        "lat": -33.76864,
+        "lon": 151.16347
+      },
+      "score": 8.9
+    },
+    {
+      "suburb": "WEST PYMBLE",
+      "coordinate": {
+        "lat": -33.765,
+        "lon": 151.12606
+      },
+      "score": 7.7
+    },
+    {
+      "suburb": "TURRAMURRA",
+      "coordinate": {
+        "lat": -33.7338,
+        "lon": 151.1301
+      },
+      "score": 4.0
+    },
+    {
+      "suburb": "ST IVES CHASE",
+      "coordinate": {
+        "lat": -33.711,
+        "lon": 151.1595
+      },
+      "score": 6.9
+    },
+    {
+      "suburb": "BERAMBING",
+      "coordinate": {
+        "lat": -33.5334,
+        "lon": 150.4438
+      },
+      "score": 1.6
+    },
+    {
+      "suburb": "EAST KURRAJONG",
+      "coordinate": {
+        "lat": -33.515277777777776,
+        "lon": 150.76777777777778
+      },
+      "score": 5.7
+    },
+    {
+      "suburb": "KURRAJONG HILLS",
+      "coordinate": {
+        "lat": -33.53333333333333,
+        "lon": 150.65
+      },
+      "score": 9.7
+    },
+    {
+      "suburb": "GUNDERMAN",
+      "coordinate": {
+        "lat": -33.4,
+        "lon": 151.08333333333334
+      },
+      "score": 9.6
+    },
+    {
+      "suburb": "LEETS VALE",
+      "coordinate": {
+        "lat": -33.43194444444444,
+        "lon": 150.9511111111111
+      },
+      "score": 8.8
+    },
+    {
+      "suburb": "MOGO CREEK",
+      "coordinate": {
+        "lat": -33.166666666666664,
+        "lon": 151.03333333333333
+      },
+      "score": 5.9
+    },
+    {
+      "suburb": "UPPER MACDONALD",
+      "coordinate": {
+        "lat": -33.25805555555556,
+        "lon": 150.94194444444446
+      },
+      "score": 3.3
+    },
+    {
+      "suburb": "LANE COVE WEST",
+      "coordinate": {
+        "lat": -33.812,
+        "lon": 151.15
+      },
+      "score": 8.3
+    },
+    {
+      "suburb": "ROZELLE",
+      "coordinate": {
+        "lat": -33.865,
+        "lon": 151.16722222222222
+      },
+      "score": 4.8
+    },
+    {
+      "suburb": "CANLEY HEIGHTS",
+      "coordinate": {
+        "lat": -33.88502,
+        "lon": 150.9276
+      },
+      "score": 5.2
+    },
+    {
+      "suburb": "CASULA MALL",
+      "coordinate": {
+        "lat": -33.948068,
+        "lon": 150.899674
+      },
+      "score": 7.5
+    },
+    {
+      "suburb": "LURNEA",
+      "coordinate": {
+        "lat": -33.93492,
+        "lon": 150.89557
+      },
+      "score": 9.8
+    },
+    {
+      "suburb": "WARWICK FARM",
+      "coordinate": {
+        "lat": -33.91395,
+        "lon": 150.93739
+      },
+      "score": 0.6
+    },
+    {
+      "suburb": "HOXTON PARK",
+      "coordinate": {
+        "lat": -33.93388888888889,
+        "lon": 150.85277777777776
+      },
+      "score": 3.2
+    },
+    {
+      "suburb": "HORSLEY PARK",
+      "coordinate": {
+        "lat": -33.85832,
+        "lon": 150.85537
+      },
+      "score": 5.0
+    },
+    {
+      "suburb": "EDENSOR PARK",
+      "coordinate": {
+        "lat": -33.88095,
+        "lon": 150.87516
+      },
+      "score": 7.7
+    },
+    {
+      "suburb": "ST JOHNS PARK",
+      "coordinate": {
+        "lat": -33.88472222222222,
+        "lon": 150.90694444444446
+      },
+      "score": 6.9
+    },
+    {
+      "suburb": "BONNYRIGG HEIGHTS",
+      "coordinate": {
+        "lat": -33.89111111111111,
+        "lon": 150.87194444444447
+      },
+      "score": 1.0
+    },
+    {
+      "suburb": "CURL CURL",
+      "coordinate": {
+        "lat": -33.77213,
+        "lon": 151.28992
+      },
+      "score": 3.6
+    },
+    {
+      "suburb": "NORTH CURL CURL",
+      "coordinate": {
+        "lat": -33.7645,
+        "lon": 151.2973
+      },
+      "score": 2.9
+    },
+    {
+      "suburb": "WARRINGAH MALL",
+      "coordinate": {
+        "lat": -33.76772,
+        "lon": 151.265991
+      },
+      "score": 9.8
+    },
+    {
+      "suburb": "NARRABEEN",
+      "coordinate": {
+        "lat": -33.7231,
+        "lon": 151.2952
+      },
+      "score": 2.7
+    },
+    {
+      "suburb": "ELVINA BAY",
+      "coordinate": {
+        "lat": -33.639515,
+        "lon": 151.277825
+      },
+      "score": 3.1
+    },
+    {
+      "suburb": "SCOTLAND ISLAND",
+      "coordinate": {
+        "lat": -33.64,
+        "lon": 151.29111111111112
+      },
+      "score": 4.2
+    },
+    {
+      "suburb": "GREAT MACKEREL BEACH",
+      "coordinate": {
+        "lat": -33.59166666666667,
+        "lon": 151.30083333333334
+      },
+      "score": 4.3
+    },
+    {
+      "suburb": "DULWICH HILL",
+      "coordinate": {
+        "lat": -33.90833333333333,
+        "lon": 151.14166666666665
+      },
+      "score": 8.0
+    },
+    {
+      "suburb": "NEUTRAL BAY",
+      "coordinate": {
+        "lat": -33.8345,
+        "lon": 151.2184
+      },
+      "score": 2.1
+    },
+    {
+      "suburb": "CATHERINE FIELD",
+      "coordinate": {
+        "lat": -33.9833,
+        "lon": 150.76
+      },
+      "score": 4.5
+    },
+    {
+      "suburb": "CURRANS HILL",
+      "coordinate": {
+        "lat": -34.04084,
+        "lon": 150.76853
+      },
+      "score": 2.2
+    },
+    {
+      "suburb": "NARELLAN",
+      "coordinate": {
+        "lat": -34.04511,
+        "lon": 150.73706
+      },
+      "score": 4.4
+    },
+    {
+      "suburb": "BICKLEY VALE",
+      "coordinate": {
+        "lat": -34.08,
+        "lon": 150.665
+      },
+      "score": 0.9
+    },
+    {
+      "suburb": "WENTWORTH POINT",
+      "coordinate": {
+        "lat": -33.82638888888889,
+        "lon": 151.07805555555555
+      },
+      "score": 5.8
+    },
+    {
+      "suburb": "RYDALMERE",
+      "coordinate": {
+        "lat": -33.81111,
+        "lon": 151.03565
+      },
+      "score": 0.8
+    },
+    {
+      "suburb": "CARLINGFORD COURT",
+      "coordinate": {
+        "lat": -33.77641111,
+        "lon": 151.0524694
+      },
+      "score": 4.0
+    },
+    {
+      "suburb": "OLD TOONGABBIE",
+      "coordinate": {
+        "lat": -33.786944444444444,
+        "lon": 150.9661111111111
+      },
+      "score": 2.4
+    },
+    {
+      "suburb": "HARRIS PARK",
+      "coordinate": {
+        "lat": -33.82481,
+        "lon": 151.00521
+      },
+      "score": 1.8
+    },
+    {
+      "suburb": "NORTH PARRAMATTA",
+      "coordinate": {
+        "lat": -33.8032,
+        "lon": 151.0055
+      },
+      "score": 4.4
+    },
+    {
+      "suburb": "BAULKHAM HILLS",
+      "coordinate": {
+        "lat": -33.75944444444445,
+        "lon": 150.99027777777778
+      },
+      "score": 3.5
+    },
+    {
+      "suburb": "MULGOA",
+      "coordinate": {
+        "lat": -33.8461,
+        "lon": 150.6525
+      },
+      "score": 9.5
+    },
+    {
+      "suburb": "CAMBRIDGE GARDENS",
+      "coordinate": {
+        "lat": -33.738,
+        "lon": 150.721
+      },
+      "score": 9.8
+    },
+    {
+      "suburb": "EMU PLAINS",
+      "coordinate": {
+        "lat": -33.75206,
+        "lon": 150.65967
+      },
+      "score": 5.7
+    },
+    {
+      "suburb": "SOUTH PENRITH",
+      "coordinate": {
+        "lat": -33.77194444444444,
+        "lon": 150.70333333333332
+      },
+      "score": 0.2
+    },
+    {
+      "suburb": "WARRAGAMBA",
+      "coordinate": {
+        "lat": -33.891666666666666,
+        "lon": 150.60333333333332
+      },
+      "score": 0.8
+    },
+    {
+      "suburb": "RANDWICK",
+      "coordinate": {
+        "lat": -33.91643,
+        "lon": 151.23653
+      },
+      "score": 4.1
+    },
+    {
+      "suburb": "SOUTH COOGEE",
+      "coordinate": {
+        "lat": -33.933,
+        "lon": 151.259
+      },
+      "score": 3.6
+    },
+    {
+      "suburb": "PAGEWOOD",
+      "coordinate": {
+        "lat": -33.94222222222222,
+        "lon": 151.2227777777778
+      },
+      "score": 0.2
+    },
+    {
+      "suburb": "MATRAVILLE",
+      "coordinate": {
+        "lat": -33.96138888888889,
+        "lon": 151.2313888888889
+      },
+      "score": 0.8
+    },
+    {
+      "suburb": "GROSE VALE",
+      "coordinate": {
+        "lat": -33.58388888888889,
+        "lon": 150.67388888888888
+      },
+      "score": 8.5
+    },
+    {
+      "suburb": "BLIGH PARK",
+      "coordinate": {
+        "lat": -33.638333333333335,
+        "lon": 150.79805555555555
+      },
+      "score": 8.3
+    },
+    {
+      "suburb": "FREEMANS REACH",
+      "coordinate": {
+        "lat": -33.561388888888885,
+        "lon": 150.79777777777778
+      },
+      "score": 5.7
+    },
+    {
+      "suburb": "MAROOTA",
+      "coordinate": {
+        "lat": -33.46027777777778,
+        "lon": 150.9947222222222
+      },
+      "score": 3.9
+    },
+    {
+      "suburb": "SOUTH MAROOTA",
+      "coordinate": {
+        "lat": -33.524166666666666,
+        "lon": 150.94861111111112
+      },
+      "score": 9.9
+    },
+    {
+      "suburb": "KURMOND",
+      "coordinate": {
+        "lat": -33.551111111111105,
+        "lon": 150.69
+      },
+      "score": 2.2
+    },
+    {
+      "suburb": "MARAYLYA",
+      "coordinate": {
+        "lat": -33.59777777777778,
+        "lon": 150.91611111111112
+      },
+      "score": 0.5
+    },
+    {
+      "suburb": "TURRELLA",
+      "coordinate": {
+        "lat": -33.93297,
+        "lon": 151.14079
+      },
+      "score": 8.5
+    },
+    {
+      "suburb": "BARDWELL PARK",
+      "coordinate": {
+        "lat": -33.93539,
+        "lon": 151.12541
+      },
+      "score": 2.8
+    },
+    {
+      "suburb": "BEXLEY NORTH",
+      "coordinate": {
+        "lat": -33.94166666666666,
+        "lon": 151.11138888888888
+      },
+      "score": 2.2
+    },
+    {
+      "suburb": "RAMSGATE BEACH",
+      "coordinate": {
+        "lat": -33.982,
+        "lon": 151.148
+      },
+      "score": 0.4
+    },
+    {
+      "suburb": "EAST RYDE",
+      "coordinate": {
+        "lat": -33.81,
+        "lon": 151.135
+      },
+      "score": 4.7
+    },
+    {
+      "suburb": "NORTH RYDE",
+      "coordinate": {
+        "lat": -33.79242,
+        "lon": 151.11954
+      },
+      "score": 0.4
+    },
+    {
+      "suburb": "MARSFIELD",
+      "coordinate": {
+        "lat": -33.77963,
+        "lon": 151.10253
+      },
+      "score": 1.2
+    },
+    {
+      "suburb": "ROPES CROSSING",
+      "coordinate": {
+        "lat": -33.73305555555556,
+        "lon": 150.79111111111112
+      },
+      "score": 4.1
+    },
+    {
+      "suburb": "GLENDENNING",
+      "coordinate": {
+        "lat": -33.749,
+        "lon": 150.851
+      },
+      "score": 2.0
+    },
+    {
+      "suburb": "ROOTY HILL",
+      "coordinate": {
+        "lat": -33.7773,
+        "lon": 150.8525
+      },
+      "score": 4.6
+    },
+    {
+      "suburb": "LETHBRIDGE PARK",
+      "coordinate": {
+        "lat": -33.733333333333334,
+        "lon": 150.79444444444445
+      },
+      "score": 6.7
+    },
+    {
+      "suburb": "STRATHFIELD",
+      "coordinate": {
+        "lat": -33.88081,
+        "lon": 151.08308
+      },
+      "score": 1.4
+    },
+    {
+      "suburb": "SYLVANIA WATERS",
+      "coordinate": {
+        "lat": -34.02305555555555,
+        "lon": 151.11166666666665
+      },
+      "score": 5.7
+    },
+    {
+      "suburb": "GYMEA BAY",
+      "coordinate": {
+        "lat": -34.04861111111111,
+        "lon": 151.1011111111111
+      },
+      "score": 3.4
+    },
+    {
+      "suburb": "CARINGBAH",
+      "coordinate": {
+        "lat": -34.0452,
+        "lon": 151.1218
+      },
+      "score": 2.1
+    },
+    {
+      "suburb": "BUNDEENA",
+      "coordinate": {
+        "lat": -34.08806111111112,
+        "lon": 151.1540611111111
+      },
+      "score": 5.2
+    },
+    {
+      "suburb": "MAIANBAR",
+      "coordinate": {
+        "lat": -34.08128,
+        "lon": 151.12914
+      },
+      "score": 9.9
+    },
+    {
+      "suburb": "WORONORA HEIGHTS",
+      "coordinate": {
+        "lat": -34.034,
+        "lon": 151.026
+      },
+      "score": 0.0
+    },
+    {
+      "suburb": "MILLERS POINT",
+      "coordinate": {
+        "lat": -33.86085,
+        "lon": 151.20281
+      },
+      "score": 0.6
+    },
+    {
+      "suburb": "SURRY HILLS",
+      "coordinate": {
+        "lat": -33.88611111111111,
+        "lon": 151.2111111111111
+      },
+      "score": 6.6
+    },
+    {
+      "suburb": "RUSHCUTTERS BAY",
+      "coordinate": {
+        "lat": -33.8774,
+        "lon": 151.2282
+      },
+      "score": 2.1
+    },
+    {
+      "suburb": "ERSKINEVILLE",
+      "coordinate": {
+        "lat": -33.90476,
+        "lon": 151.18479
+      },
+      "score": 3.8
+    },
+    {
+      "suburb": "NORTH SYDNEY",
+      "coordinate": {
+        "lat": -33.83965,
+        "lon": 151.20541
+      },
+      "score": 6.0
+    },
+    {
+      "suburb": "NORTH SYDNEY",
+      "coordinate": {
+        "lat": -33.83965,
+        "lon": 151.20541
+      },
+      "score": 4.2
+    },
+    {
+      "suburb": "MILSONS POINT",
+      "coordinate": {
+        "lat": -33.84765,
+        "lon": 151.21201
+      },
+      "score": 7.7
+    },
+    {
+      "suburb": "ARTARMON",
+      "coordinate": {
+        "lat": -33.80894,
+        "lon": 151.18292
+      },
+      "score": 5.2
+    },
+    {
+      "suburb": "CHATSWOOD WEST",
+      "coordinate": {
+        "lat": -33.8021,
+        "lon": 151.16301
+      },
+      "score": 6.8
+    },
+    {
+      "suburb": "NORTH WILLOUGHBY",
+      "coordinate": {
+        "lat": -33.795,
+        "lon": 151.204
+      },
+      "score": 3.1
+    },
+    {
+      "suburb": "WILLOUGHBY NORTH",
+      "coordinate": {
+        "lat": -33.795,
+        "lon": 151.204
+      },
+      "score": 6.5
+    },
+    {
+      "suburb": "WOOLLAHRA",
+      "coordinate": {
+        "lat": -33.88333333333333,
+        "lon": 151.25
+      },
+      "score": 6.2
+    },
+    {
+      "suburb": "NORTH BONDI",
+      "coordinate": {
+        "lat": -33.88777777777778,
+        "lon": 151.28083333333333
+      },
+      "score": 9.8
+    }
+  ]

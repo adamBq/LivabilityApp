@@ -1,83 +1,127 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import {
+  MapContainer,
+  TileLayer,
+  CircleMarker,
+  Tooltip,
+  useMapEvents,
+} from "react-leaflet"
+import L, { LatLngExpression } from "leaflet"
+import "leaflet/dist/leaflet.css"
+
+// NOTE: adjust the path below to wherever you place the JSON file.
+import suburbData from "@/data/nsw-suburbs-coords-final-scores.json" assert { type: "json" }
+
+/***********************************************************
+ * Helper utilities                                        *
+ ***********************************************************/
+
+// Convert score (0‑10) to a red→yellow→green gradient
+function scoreToColor(score: number): string {
+  const t = Math.max(0, Math.min(10, score)) / 10 // 0‑1
+  // r: 255→0, g: 0→255 across the range
+  const r = Math.round(255 * (1 - t))
+  const g = Math.round(255 * t)
+  return `rgb(${r},${g},0)`
+}
+
+// Very lightweight inverse‑distance‑weighted interpolation
+function idw(lat: number, lon: number, k = 8, power = 2): number | undefined {
+  const distances = suburbData.map(({ coordinate, score }) => {
+    const d = L.latLng(lat, lon).distanceTo(L.latLng(coordinate.lat, coordinate.lon))
+    return { d, score }
+  })
+  distances.sort((a, b) => a.d - b.d)
+  const nearest = distances.slice(0, k)
+  if (nearest[0].d < 1) return nearest[0].score // cursor on a point
+  let num = 0,
+    den = 0
+  nearest.forEach(({ d, score }) => {
+    const w = 1 / Math.pow(d, power)
+    num += w * score
+    den += w
+  })
+  return den ? num / den : undefined
+}
+
+/***********************************************************
+ * React‑Leaflet component                                 *
+ ***********************************************************/
 
 interface SimplifiedMapProps {
-  onSuburbSelect: (suburbId: string) => void
+  onSuburbSelect?: (suburbId: string) => void
   selectedSuburbId?: string
 }
 
-export function SimplifiedMap({ onSuburbSelect, selectedSuburbId }: SimplifiedMapProps) {
-  // This is a simplified map component
-  // In a real application, you would use a proper mapping library like Leaflet or Mapbox
-  // with actual GeoJSON data for NSW suburbs
+export default function SimplifiedMap({
+  onSuburbSelect,
+  selectedSuburbId,
+}: SimplifiedMapProps) {
+  const [hoverScore, setHoverScore] = useState<number | undefined>(undefined)
 
-  const [hoveredSuburb, setHoveredSuburb] = useState<string | null>(null)
-
-  // Mock suburb data - in a real app this would be GeoJSON data
-  const mockSuburbs = [
-    { id: "sydney", name: "Sydney", x: 50, y: 50, width: 30, height: 30 },
-    { id: "parramatta", name: "Parramatta", x: 30, y: 40, width: 25, height: 25 },
-    { id: "newcastle", name: "Newcastle", x: 70, y: 20, width: 25, height: 25 },
-    { id: "wollongong", name: "Wollongong", x: 60, y: 70, width: 25, height: 25 },
-    { id: "penrith", name: "Penrith", x: 15, y: 35, width: 20, height: 20 },
-    { id: "gosford", name: "Gosford", x: 60, y: 30, width: 20, height: 20 },
-    { id: "bathurst", name: "Bathurst", x: 20, y: 15, width: 20, height: 20 },
-    { id: "wagga", name: "Wagga Wagga", x: 20, y: 80, width: 20, height: 20 },
-    { id: "albury", name: "Albury", x: 30, y: 90, width: 20, height: 20 },
-    { id: "tamworth", name: "Tamworth", x: 40, y: 10, width: 20, height: 20 },
-  ]
+  // Inner component to hook mousemove once map exists
+  function MouseMoveHandler() {
+    useMapEvents({
+      mousemove: (e) => setHoverScore(idw(e.latlng.lat, e.latlng.lng)),
+      mouseout: () => setHoverScore(undefined),
+    })
+    return null
+  }
 
   return (
-    <div className="relative h-full w-full bg-gray-50">
-      <svg width="100%" height="100%" viewBox="0 0 100 100" className="overflow-visible">
-        {/* NSW outline - simplified */}
-        <path
-          d="M5,20 C10,10 30,5 50,5 C70,5 90,15 95,30 C100,45 95,70 85,85 C75,95 50,95 30,90 C10,85 0,60 5,20 Z"
-          fill="#f9fafb"
-          stroke="#e5e7eb"
-          strokeWidth="0.5"
-        />
+    <MapContainer
+      center={[-32.5, 147] as LatLngExpression}
+      zoom={6}
+      scrollWheelZoom
+      className="h-full w-full"
+    >
+      <TileLayer
+        attribution='&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
 
-        {/* Render each suburb as a rectangle */}
-        {mockSuburbs.map((suburb) => (
-          <rect
-            key={suburb.id}
-            x={suburb.x}
-            y={suburb.y}
-            width={suburb.width}
-            height={suburb.height}
-            rx="2"
-            fill={selectedSuburbId === suburb.id ? "#ef4444" : hoveredSuburb === suburb.id ? "#fecaca" : "#fee2e2"}
-            stroke={selectedSuburbId === suburb.id ? "#b91c1c" : "#ef4444"}
-            strokeWidth="0.5"
-            onClick={() => onSuburbSelect(suburb.id)}
-            onMouseEnter={() => setHoveredSuburb(suburb.id)}
-            onMouseLeave={() => setHoveredSuburb(null)}
-            style={{ cursor: "pointer" }}
-          />
-        ))}
+      {/* Plot known suburb points */}
+      {suburbData.map((s) => (
+        <CircleMarker
+          key={s.suburb}
+          center={[s.coordinate.lat, s.coordinate.lon] as LatLngExpression}
+          radius={6}
+          pathOptions={{
+            color: selectedSuburbId === s.suburb ? "#000" : "#333",
+            weight: 1,
+            fillColor: scoreToColor(s.score),
+            fillOpacity: 0.9,
+          }}
+          eventHandlers={{
+            click: () => onSuburbSelect?.(s.suburb),
+          }}
+        >
+          <Tooltip direction="top" offset={[0, -6]} opacity={1} className="text-xs">
+            {`${s.suburb}: ${s.score}`}
+          </Tooltip>
+        </CircleMarker>
+      ))}
 
-        {/* Suburb labels */}
-        {mockSuburbs.map((suburb) => (
-          <text
-            key={`label-${suburb.id}`}
-            x={suburb.x + suburb.width / 2}
-            y={suburb.y + suburb.height / 2}
-            textAnchor="middle"
-            dominantBaseline="middle"
-            fontSize="2"
-            fill={selectedSuburbId === suburb.id ? "white" : "#111827"}
-            pointerEvents="none"
-          >
-            {suburb.name}
-          </text>
-        ))}
-      </svg>
+      <MouseMoveHandler />
 
-      <div className="absolute bottom-2 right-2 rounded bg-white p-2 text-xs text-gray-500 shadow-sm">
-        This is a simplified map for demonstration purposes.
+      {/* floating info panel */}
+      <div className="leaflet-top leaflet-right p-2 pointer-events-none">
+        <div className="rounded bg-white/85 px-3 py-1 text-sm text-gray-800 shadow">
+          {hoverScore === undefined ? "Move cursor over NSW" : `Est. score: ${hoverScore.toFixed(2)}`}
+        </div>
       </div>
-    </div>
+    </MapContainer>
   )
 }
+
+/***********************************************************
+ * Usage notes                                             *
+ ***********************************************************
+ * • Place `nsw-suburbs-coords-final-scores.json` in `src/data` (or update import).
+ * • Install deps: `npm i react-leaflet leaflet` and `@types/leaflet`.
+ * • Ensure Leaflet’s CSS is imported once globally (e.g. in `layout.tsx`).
+ * • This IDW is CPU‑light; for smoother coloured surfaces use the `leaflet-idw` or
+ *   `leaflet.heat` plugins.
+ */

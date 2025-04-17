@@ -8,7 +8,7 @@ import { Slider } from "@/components/ui/slider"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { getSuburbData, getSuburbsByName } from "@/lib/api"
-import { SimplifiedMap } from "@/components/simplified-map"
+import SimplifiedMap from "@/components/simplified-map"
 
 export function MapExplorer() {
   const [searchQuery, setSearchQuery] = useState("")
