@@ -1,41 +1,43 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import {
   MapContainer,
   TileLayer,
   CircleMarker,
   Tooltip,
+  Polyline,
   useMapEvents,
+  useMap,
 } from "react-leaflet"
-import L, { LatLngExpression } from "leaflet"
+import L, { LatLngExpression, LatLng } from "leaflet"
 import "leaflet/dist/leaflet.css"
 
-// NOTE: adjust the path below to wherever you place the JSON file.
 import suburbData from "@/data/nsw-suburbs-coords-final-scores.json" assert { type: "json" }
 
-/***********************************************************
- * Helper utilities                                        *
- ***********************************************************/
+// ────────────────────────────────────────────────────────────
+//  Constants & helpers
+// ────────────────────────────────────────────────────────────
 
-// Convert score (0‑10) to a red→yellow→green gradient
+const EXCLUDE_FROM_DISPLAY = ["CADGEE", "ARATULA", "WASHPOOL"]
+const displayPoints = suburbData.filter((s) => !EXCLUDE_FROM_DISPLAY.includes(s.suburb))
+
 function scoreToColor(score: number): string {
-  const t = Math.max(0, Math.min(10, score)) / 10 // 0‑1
-  // r: 255→0, g: 0→255 across the range
+  const t = Math.max(0, Math.min(10, score)) / 10
   const r = Math.round(255 * (1 - t))
   const g = Math.round(255 * t)
   return `rgb(${r},${g},0)`
 }
 
-// Very lightweight inverse‑distance‑weighted interpolation
-function idw(lat: number, lon: number, k = 8, power = 2): number | undefined {
-  const distances = suburbData.map(({ coordinate, score }) => {
-    const d = L.latLng(lat, lon).distanceTo(L.latLng(coordinate.lat, coordinate.lon))
-    return { d, score }
-  })
-  distances.sort((a, b) => a.d - b.d)
-  const nearest = distances.slice(0, k)
-  if (nearest[0].d < 1) return nearest[0].score // cursor on a point
+function idw(lat: number, lon: number, k = 8, power = 2) {
+  const dists = suburbData.map(({ coordinate, score }) => ({
+    d: L.latLng(lat, lon).distanceTo(L.latLng(coordinate.lat, coordinate.lon)),
+    score,
+    coord: coordinate,
+  }))
+  dists.sort((a, b) => a.d - b.d)
+  const nearest = dists.slice(0, k)
+  if (nearest[0].d < 1) return { value: nearest[0].score, nearest }
   let num = 0,
     den = 0
   nearest.forEach(({ d, score }) => {
@@ -43,29 +45,46 @@ function idw(lat: number, lon: number, k = 8, power = 2): number | undefined {
     num += w * score
     den += w
   })
-  return den ? num / den : undefined
+  return { value: den ? num / den : undefined, nearest }
 }
 
-/***********************************************************
- * React‑Leaflet component                                 *
- ***********************************************************/
+// ────────────────────────────────────────────────────────────
+//  Main component
+// ────────────────────────────────────────────────────────────
 
 interface SimplifiedMapProps {
-  onSuburbSelect?: (suburbId: string) => void
+  onSuburbSelect?: (id: string) => void
   selectedSuburbId?: string
 }
 
-export default function SimplifiedMap({
-  onSuburbSelect,
-  selectedSuburbId,
-}: SimplifiedMapProps) {
-  const [hoverScore, setHoverScore] = useState<number | undefined>(undefined)
+export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId }: SimplifiedMapProps) {
+  const [hover, setHover] = useState<{
+    latlng: LatLng
+    pos: L.Point
+    value: number
+    lines: [number, number][]
+  } | null>(null)
+  const [overMarker, setOverMarker] = useState(false)
 
-  // Inner component to hook mousemove once map exists
-  function MouseMoveHandler() {
+  // Track the cursor and compute IDW on the fly
+  function CursorTracker() {
+    const map = useMap()
+    const raf = useRef<number | null>(null)
     useMapEvents({
-      mousemove: (e) => setHoverScore(idw(e.latlng.lat, e.latlng.lng)),
-      mouseout: () => setHoverScore(undefined),
+      mousemove: (e) => {
+        if (raf.current) cancelAnimationFrame(raf.current)
+        raf.current = requestAnimationFrame(() => {
+          const { value, nearest } = idw(e.latlng.lat, e.latlng.lng)
+          const containerPoint = map.latLngToContainerPoint(e.latlng)
+          setHover({
+            latlng: e.latlng,
+            pos: containerPoint,
+            value: value ?? 0,
+            lines: nearest.slice(0, 3).map((n) => [n.coord.lat, n.coord.lon]),
+          })
+        })
+      },
+      mouseout: () => setHover(null),
     })
     return null
   }
@@ -74,16 +93,14 @@ export default function SimplifiedMap({
     <MapContainer
       center={[-32.5, 147] as LatLngExpression}
       zoom={6}
+      className={`h-full w-full ${!overMarker ? "cursor-crosshair" : ""}`}
       scrollWheelZoom
-      className="h-full w-full"
+      preferCanvas
     >
-      <TileLayer
-        attribution='&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-      {/* Plot known suburb points */}
-      {suburbData.map((s) => (
+      {/* suburb markers */}
+      {displayPoints.map((s) => (
         <CircleMarker
           key={s.suburb}
           center={[s.coordinate.lat, s.coordinate.lon] as LatLngExpression}
@@ -96,6 +113,8 @@ export default function SimplifiedMap({
           }}
           eventHandlers={{
             click: () => onSuburbSelect?.(s.suburb),
+            mouseover: () => setOverMarker(true),
+            mouseout: () => setOverMarker(false),
           }}
         >
           <Tooltip direction="top" offset={[0, -6]} opacity={1} className="text-xs">
@@ -104,24 +123,26 @@ export default function SimplifiedMap({
         </CircleMarker>
       ))}
 
-      <MouseMoveHandler />
+      {/* helper polylines to nearest 3 suburbs */}
+      {hover && !overMarker &&
+        hover.lines.map((latlon, i) => (
+          <Polyline
+            key={i}
+            positions={[[latlon[0], latlon[1]], [hover.latlng.lat, hover.latlng.lng]]}
+            pathOptions={{ color: "#555", weight: 0.5, dashArray: "3" }}
+          />
+        ))}
 
-      {/* floating info panel */}
-      <div className="leaflet-top leaflet-right p-2 pointer-events-none">
-        <div className="rounded bg-white/85 px-3 py-1 text-sm text-gray-800 shadow">
-          {hoverScore === undefined ? "Move cursor over NSW" : `Est. score: ${hoverScore.toFixed(2)}`}
+      <CursorTracker />
+
+      {hover && !overMarker && (
+        <div
+          className="pointer-events-none absolute z-[1000] rounded bg-white/80 px-2 py-1 text-xs text-gray-800 shadow"
+          style={{ left: hover.pos.x + 12, top: hover.pos.y - 12 }}
+        >
+          Est. score: {hover.value.toFixed(2)}
         </div>
-      </div>
+      )}
     </MapContainer>
   )
 }
-
-/***********************************************************
- * Usage notes                                             *
- ***********************************************************
- * • Place `nsw-suburbs-coords-final-scores.json` in `src/data` (or update import).
- * • Install deps: `npm i react-leaflet leaflet` and `@types/leaflet`.
- * • Ensure Leaflet’s CSS is imported once globally (e.g. in `layout.tsx`).
- * • This IDW is CPU‑light; for smoother coloured surfaces use the `leaflet-idw` or
- *   `leaflet.heat` plugins.
- */

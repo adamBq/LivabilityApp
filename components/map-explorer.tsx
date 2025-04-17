@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import dynamic from "next/dynamic"
 import { Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -8,7 +9,9 @@ import { Slider } from "@/components/ui/slider"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { getSuburbData, getSuburbsByName } from "@/lib/api"
-import SimplifiedMap from "@/components/simplified-map"
+
+// 🧠 Dynamically import the SimplifiedMap component (client-only)
+const SimplifiedMap = dynamic(() => import("@/components/simplified-map"), { ssr: false })
 
 export function MapExplorer() {
   const [searchQuery, setSearchQuery] = useState("")
