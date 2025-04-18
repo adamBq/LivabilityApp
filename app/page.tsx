@@ -1,11 +1,37 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowDown, MapPin, BarChart2, HelpCircle } from "lucide-react"
+import { useState } from "react"
+import { useRouter } from "next/navigation"
+import {
+  ArrowDown,
+  MapPin,
+  BarChart2,
+  HelpCircle,
+  ShieldCheck,
+  Train,
+  Sun,
+  Users,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 export default function Home() {
+  const router = useRouter()
+  const [searchInput, setSearchInput] = useState("")
+
+  const handleSearch = () => {
+    if (searchInput.trim()) {
+      router.push(`/search?address=${encodeURIComponent(searchInput.trim())}`)
+    }
+  }
+
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -16,17 +42,36 @@ export default function Home() {
             Find Your Perfect Suburb in NSW
           </h1>
           <p className="mx-auto mb-8 max-w-3xl text-xl text-gray-600">
-            Discover the most livable suburbs in New South Wales based on your preferences for safety, transportation,
-            weather, and family demographics.
+            Discover the most livable suburbs in New South Wales based on your
+            preferences for safety, transportation, weather, and family
+            demographics.
           </p>
-          <Button asChild size="lg" className="bg-red-600 px-8 py-6 text-lg hover:bg-red-700">
-            <Link href="/map">Get Started Now</Link>
-          </Button>
+
+          {/* Search Bar */}
+          <div className="mx-auto flex max-w-md gap-2">
+            <input
+              type="text"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              placeholder="Enter address or suburb"
+              className="w-full rounded-lg border border-gray-300 p-3 focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
+            />
+            <Button
+              size="lg"
+              className="bg-red-600 px-6 py-3 text-lg hover:bg-red-700"
+              onClick={handleSearch}
+              disabled={!searchInput.trim()}
+            >
+              Search
+            </Button>
+          </div>
 
           <div className="mt-16 animate-bounce">
             <button
               onClick={() => {
-                document.getElementById("about-section")?.scrollIntoView({ behavior: "smooth" })
+                document
+                  .getElementById("about-section")
+                  ?.scrollIntoView({ behavior: "smooth" })
               }}
               className="flex flex-col items-center text-gray-500 transition-colors hover:text-red-600"
             >
@@ -41,10 +86,13 @@ export default function Home() {
       <section id="about-section" className="bg-white py-20">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center">
-            <h2 className="mb-4 text-4xl font-bold text-red-600">About NSW Livability Explorer</h2>
+            <h2 className="mb-4 text-4xl font-bold text-red-600">
+              About NSW Livability Explorer
+            </h2>
             <p className="mx-auto max-w-3xl text-lg text-gray-600">
-              Our mission is to help home buyers, investors, real estate agents, and insurers understand how livable
-              each suburb in New South Wales is.
+              Our mission is to help home buyers, investors, real estate agents,
+              and insurers understand how livable each suburb in New South
+              Wales is.
             </p>
           </div>
 
@@ -55,8 +103,10 @@ export default function Home() {
               </div>
               <h3 className="mb-3 text-2xl font-bold">Interactive Map</h3>
               <p className="text-gray-600">
-                Explore our interactive map of NSW that outlines all suburbs. Click on any suburb to see its livability
-                score and detailed data about crime rates, weather, public transportation, and family demographics.
+                Explore our interactive map of NSW that outlines all suburbs.
+                Click on any suburb to see its livability score and detailed
+                data about crime rates, weather, public transportation, and
+                family demographics.
               </p>
             </div>
 
@@ -66,8 +116,9 @@ export default function Home() {
               </div>
               <h3 className="mb-3 text-2xl font-bold">Compare Suburbs</h3>
               <p className="text-gray-600">
-                Use our comparison tool to evaluate up to three suburbs side by side. Compare livability scores, housing
-                prices, and other important statistics to make an informed decision.
+                Use our comparison tool to evaluate up to three suburbs side by
+                side. Compare livability scores, housing prices, and other
+                important statistics to make an informed decision.
               </p>
             </div>
 
@@ -77,15 +128,17 @@ export default function Home() {
               </div>
               <h3 className="mb-3 text-2xl font-bold">Find Your Ideal Suburb</h3>
               <p className="text-gray-600">
-                Take our quiz to discover your dream suburb. Answer a few questions about your preferences, and we'll
-                recommend the most suitable suburbs for you in NSW.
+                Take our quiz to discover your dream suburb. Answer a few
+                questions about your preferences, and we'll recommend the most
+                suitable suburbs for you in NSW.
               </p>
             </div>
           </div>
 
           <div className="mt-16 text-center">
             <p className="mb-8 text-lg text-gray-600">
-              Currently available for NSW, with plans to expand to all of Australia in the future.
+              Currently available for NSW, with plans to expand to all of
+              Australia in the future.
             </p>
             <Button asChild size="lg" className="bg-red-600 px-8 hover:bg-red-700">
               <Link href="/map">Explore the Map</Link>
@@ -94,55 +147,90 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Preview Section */}
+      {/* Livability Score Explanation Section */}
       <section className="bg-gray-50 py-20">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center">
-            <h2 className="mb-4 text-4xl font-bold text-red-600">Our Features</h2>
+            <h2 className="mb-4 text-4xl font-bold text-red-600">
+              What Is the Livability Score?
+            </h2>
             <p className="mx-auto max-w-3xl text-lg text-gray-600">
-              Discover all the tools we offer to help you find your perfect suburb
+              A single 0–100 score that captures how comfortable life feels in
+              any NSW suburb — powered by the freshest public data.
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-4">
+            {/* Safety */}
             <Card className="border-red-200 shadow-md">
               <CardHeader className="bg-red-50">
-                <CardTitle className="text-red-600">Explore the Map</CardTitle>
-                <CardDescription>Interactive map of NSW with detailed suburb information</CardDescription>
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-red-100 text-red-600">
+                  <ShieldCheck className="h-7 w-7" />
+                </div>
+                <CardTitle className="text-red-600">Safety</CardTitle>
+                <CardDescription>Latest crime statistics</CardDescription>
               </CardHeader>
-              <CardContent className="pt-6">
-                <p className="mb-4">Click on any suburb to see its livability score and details.</p>
-                <Button asChild className="w-full bg-red-600 hover:bg-red-700">
-                  <Link href="/map">Explore Map</Link>
-                </Button>
+              <CardContent className="pt-4 text-sm text-gray-600">
+                We ingest monthly BOSCAR reports to gauge offence rates and
+                weight violent and property crime separately, giving you a clear
+                sense of security.
               </CardContent>
             </Card>
 
+            {/* Transport */}
             <Card className="border-red-200 shadow-md">
               <CardHeader className="bg-red-50">
-                <CardTitle className="text-red-600">Compare Suburbs</CardTitle>
-                <CardDescription>Side-by-side comparison of up to three suburbs</CardDescription>
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-red-100 text-red-600">
+                  <Train className="h-7 w-7" />
+                </div>
+                <CardTitle className="text-red-600">Public Transport</CardTitle>
+                <CardDescription>Access &amp; frequency</CardDescription>
               </CardHeader>
-              <CardContent className="pt-6">
-                <p className="mb-4">Compare livability scores, amenities, and more between suburbs.</p>
-                <Button asChild className="w-full bg-red-600 hover:bg-red-700">
-                  <Link href="/compare">Compare Now</Link>
-                </Button>
+              <CardContent className="pt-4 text-sm text-gray-600">
+              Using Google Maps transit data, we measure how many bus, train,
+                light‑rail and ferry services you can reach within a
+                10‑minute walk, plus their peak‑hour frequency.
               </CardContent>
             </Card>
 
+            {/* Weather */}
             <Card className="border-red-200 shadow-md">
               <CardHeader className="bg-red-50">
-                <CardTitle className="text-red-600">Find Your Ideal Suburb</CardTitle>
-                <CardDescription>Take our quiz to discover your perfect match</CardDescription>
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-red-100 text-red-600">
+                  <Sun className="h-7 w-7" />
+                </div>
+                <CardTitle className="text-red-600">Climate Comfort</CardTitle>
+                <CardDescription>Sunshine &amp; rainfall</CardDescription>
               </CardHeader>
-              <CardContent className="pt-6">
-                <p className="mb-4">Answer a few questions and we'll recommend suburbs that match your lifestyle.</p>
-                <Button asChild className="w-full bg-red-600 hover:bg-red-700">
-                  <Link href="/quiz">Take the Quiz</Link>
-                </Button>
+              <CardContent className="pt-4 text-sm text-gray-600">
+              We track severe storms, flood‑prone zones and other climate
+                hazards to score how often extreme events disrupt everyday
+                life.
               </CardContent>
             </Card>
+
+            {/* Family & Community */}
+            <Card className="border-red-200 shadow-md">
+              <CardHeader className="bg-red-50">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-red-100 text-red-600">
+                  <Users className="h-7 w-7" />
+                </div>
+                <CardTitle className="text-red-600">Family &amp; Community</CardTitle>
+                <CardDescription>Population &amp; income</CardDescription>
+              </CardHeader>
+              <CardContent className="pt-4 text-sm text-gray-600">
+                ABS census figures reveal median household income, family size
+                and age mix, helping you find suburbs with the vibe you want.
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="mx-auto max-w-2xl text-lg text-gray-600">
+              Each factor is normalised and weighted, then blended into an
+              easy‑to‑compare score — so you can focus on lifestyle, not
+              spreadsheets.
+            </p>
           </div>
         </div>
       </section>

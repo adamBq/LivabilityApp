@@ -26,7 +26,6 @@ export default function RootLayout({
           <footer className="border-t border-gray-200 bg-white py-6">
             <div className="container mx-auto px-4 text-center text-gray-600">
               <p>© {new Date().getFullYear()} NSW Suburb Livability Explorer</p>
-              <p className="mt-2 text-sm">Data is for demonstration purposes only</p>
             </div>
           </footer>
         </ThemeProvider>
