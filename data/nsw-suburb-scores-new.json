@@ -512,13 +512,6 @@
     "score": 9.8
   },
   {
-    "suburb": "PINNY BEACH",
-    "coordinate": {
-      "lat": -33.117,
-      "lon": 151.634
-    }
-  },
-  {
     "suburb": "ELEEBANA",
     "coordinate": {
       "lat": -32.996,
@@ -725,20 +718,6 @@
       "lon": 151.7876388888889
     },
     "score": 6.98
-  },
-  {
-    "suburb": "KOORAGANG",
-    "coordinate": {
-      "lat": -32.876111111111115,
-      "lon": 151.76777777777778
-    }
-  },
-  {
-    "suburb": "MAYFIELD NORTH",
-    "coordinate": {
-      "lat": -32.89,
-      "lon": 151.743
-    }
   },
   {
     "suburb": "WARABROOK",
@@ -949,13 +928,6 @@
     "score": 8.26
   },
   {
-    "suburb": "YALWAL",
-    "coordinate": {
-      "lat": -34.93333333333333,
-      "lon": 150.38333333333333
-    }
-  },
-  {
     "suburb": "BOMADERRY",
     "coordinate": {
       "lat": -34.848,
@@ -994,13 +966,6 @@
       "lon": 150.83833333333334
     },
     "score": 4.35
-  },
-  {
-    "suburb": "BREAM BEACH",
-    "coordinate": {
-      "lat": -35.10861111111111,
-      "lon": 150.66166666666666
-    }
   },
   {
     "suburb": "HYAMS BEACH",
@@ -1827,13 +1792,6 @@
     "score": 8.46
   },
   {
-    "suburb": "LAKE BURRENDONG",
-    "coordinate": {
-      "lat": -32.666666666666664,
-      "lon": 149.13333333333333
-    }
-  },
-  {
     "suburb": "MUMBIL",
     "coordinate": {
       "lat": -32.71666666666667,
@@ -2594,13 +2552,6 @@
     "score": 9.28
   },
   {
-    "suburb": "ENVIRONA",
-    "coordinate": {
-      "lat": -35.4,
-      "lon": 149.18333333333334
-    }
-  },
-  {
     "suburb": "KARABAR",
     "coordinate": {
       "lat": -35.36666666666667,
@@ -2729,13 +2680,6 @@
     "score": 9.35
   },
   {
-    "suburb": "ARNDELL PARK",
-    "coordinate": {
-      "lat": -33.79,
-      "lon": 150.876
-    }
-  },
-  {
     "suburb": "MARAYONG",
     "coordinate": {
       "lat": -33.75,
@@ -2766,13 +2710,6 @@
       "lon": 151.21027777777778
     },
     "score": 9.05
-  },
-  {
-    "suburb": "PORT BOTANY",
-    "coordinate": {
-      "lat": -33.976,
-      "lon": 151.218
-    }
   },
   {
     "suburb": "WEROMBI",
@@ -3133,13 +3070,6 @@
       "lon": 150.9511111111111
     },
     "score": 9.19
-  },
-  {
-    "suburb": "MOGO CREEK",
-    "coordinate": {
-      "lat": -33.166666666666664,
-      "lon": 151.03333333333333
-    }
   },
   {
     "suburb": "UPPER MACDONALD",

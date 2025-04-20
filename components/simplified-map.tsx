@@ -144,10 +144,24 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId, pin }:
 
   const showMarkers = mode === "points"
 
+  function Legend() {
+    return (
+      <div className="absolute bottom-2 left-2 z-[30] w-36 rounded bg-white/90 p-2 shadow">
+        <div className="text-sm font-medium mb-1">Livability score</div>
+        <div className="h-2 w-full rounded"
+             style={{ background: 'linear-gradient(to right,rgb(203, 62, 62), #ff4d4d, #3bb273)' }}/>
+        <div className="flex justify-between text-xs mt-1">
+          <span>0</span><span>5</span><span>10</span>
+        </div>
+      </div>
+    )
+  }
+  
+  
   return (
     <div className="relative h-full w-full">
       {/* mode buttons */}
-      <div className="absolute right-2 top-2 z-[1000] space-x-1 rounded bg-white/90 p-1 shadow">
+      <div className="absolute right-2 top-2 z-[30] space-x-1 rounded bg-white/90 p-1 shadow">
         {[
           { key: "points", label: "Exact Points" },
           { key: "heat", label: "Heatmap" },
@@ -163,11 +177,12 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId, pin }:
           </button>
         ))}
       </div>
+      <Legend />
 
       <MapContainer
         center={[-32.5, 147] as LatLngExpression}
         zoom={6}
-        className="h-full w-full"
+        className="h-full w-full z-[20]"
         style={{ cursor: overMarker ? "pointer" : isPanning ? "grabbing" : "crosshair" }}
         scrollWheelZoom
         preferCanvas
@@ -237,7 +252,7 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId, pin }:
 
         {hover && !overMarker && (
           <div
-            className="pointer-events-none absolute z-[1000] rounded bg-white/80 px-2 py-1 text-xs text-gray-800 shadow"
+            className="pointer-events-none absolute z-[400] rounded bg-white/80 px-2 py-1 text-xs text-gray-800 shadow"
             style={{ left: hover.pos.x + 12, top: hover.pos.y - 12 }}
           >
             Est. score: {hover.value.toFixed(2)}
