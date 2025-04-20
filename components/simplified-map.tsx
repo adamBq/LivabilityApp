@@ -22,8 +22,18 @@ import suburbData from "@/data/nsw-suburb-scores-new.json" assert { type: "json"
 const EXCLUDE = ["CADGEE", "ARATULA", "WASHPOOL"]
 const displayPoints = suburbData.filter((s) => !EXCLUDE.includes(s.suburb))
 
+// const scoreToColor = (v: number) => {
+//   const t = Math.max(0, Math.min(10, v)) / 10
+//   return `rgb(${Math.round(255 * (1 - t))},${Math.round(255 * t)},0)`
+// }
 const scoreToColor = (v: number) => {
-  const t = Math.max(0, Math.min(10, v)) / 10
+  // Clamp score to [4, 10]
+  const clamped = Math.max(6.5, Math.min(10, v))
+
+  // Map [4, 10] → [0, 1]
+  const t = Math.pow((clamped - 6) / 6.5, 0.7)
+
+  // Same red-to-green ramp
   return `rgb(${Math.round(255 * (1 - t))},${Math.round(255 * t)},0)`
 }
 
@@ -144,12 +154,25 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId, pin }:
 
   const showMarkers = mode === "points"
 
-  function Legend() {
+  function LegendPoint() {
     return (
       <div className="absolute bottom-2 left-2 z-[30] w-36 rounded bg-white/90 p-2 shadow">
         <div className="text-sm font-medium mb-1">Livability score</div>
         <div className="h-2 w-full rounded"
              style={{ background: 'linear-gradient(to right,rgb(203, 62, 62), #ff4d4d, #3bb273)' }}/>
+        <div className="flex justify-between text-xs mt-1">
+          <span>0</span><span>5</span><span>10</span>
+        </div>
+      </div>
+    )
+  }
+
+  function LegendHeat() {
+    return (
+      <div className="absolute bottom-2 left-2 z-[30] w-36 rounded bg-white/90 p-2 shadow">
+        <div className="text-sm font-medium mb-1">Livability score</div>
+        <div className="h-2 w-full rounded"
+             style={{ background: 'linear-gradient(to right, #ff4d4d, #3bb273)' }}/>
         <div className="flex justify-between text-xs mt-1">
           <span>0</span><span>5</span><span>10</span>
         </div>
@@ -177,7 +200,7 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId, pin }:
           </button>
         ))}
       </div>
-      <Legend />
+      {mode === "points" ? <LegendPoint /> : <LegendHeat />}
 
       <MapContainer
         center={[-32.5, 147] as LatLngExpression}
