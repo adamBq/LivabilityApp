@@ -14,7 +14,7 @@ import L, { LatLngExpression, LatLng } from "leaflet"
 import "leaflet/dist/leaflet.css"
 import "leaflet.heat"
 
-import suburbData from "@/data/nsw-suburbs-coords-final-scores.json" assert { type: "json" }
+import suburbData from "@/data/nsw-suburb-scores-new.json" assert { type: "json" }
 
 // ────────────────────────────────────────────────────────────
 // helpers
@@ -40,7 +40,7 @@ const idw = (lat: number, lon: number, k = 8, p = 2) => {
     den = 0
   nearest.forEach(({ d, score }) => {
     const w = 1 / Math.pow(d, p)
-    num += w * score
+    num += w * (score ? score : 1)
     den += w
   })
   return { value: den ? num / den : undefined, nearest }
@@ -86,7 +86,7 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId, pin }:
     const build = () => {
       const zoom = map.getZoom()
       const radius = baseRadius * (zoom / 6)
-      const pts: [number, number, number][] = suburbData.map((s) => [s.coordinate.lat, s.coordinate.lon, s.score / 10])
+      const pts: [number, number, number][] = suburbData.map((s) => [s.coordinate.lat, s.coordinate.lon, (s.score ? s.score : 1) / 10])
       return (L as any).heatLayer(pts, {
         radius,
         blur: radius * 0.8,
@@ -185,7 +185,7 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId, pin }:
               pathOptions={{
                 color: selectedSuburbId === s.suburb ? "#000" : "#333",
                 weight: 1,
-                fillColor: scoreToColor(s.score),
+                fillColor: scoreToColor(s.score ? s.score : 1),
                 fillOpacity: 0.9,
               }}
               eventHandlers={{
