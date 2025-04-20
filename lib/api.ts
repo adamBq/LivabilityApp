@@ -239,11 +239,14 @@ export async function getSuburbData(suburb: string, weights?: Record<string, num
   try {
     const score = await callScoreAPI(body);
     const population = await getSuburbPopulation(suburb);
+    const income = await getSuburbIncome(suburb);
+    console.log(income)
     
       return {
         name: suburb,
         ...score,
-        population: population.totalPopulation
+        population: population.totalPopulation, 
+        income: income.average_income_range
       };
   } catch (error) {
     throw new Error(`${error}`);
@@ -323,29 +326,60 @@ export async function getSuburbPopulation(suburb: String) {
   const url =
   'https://m42dj4mgj8.execute-api.ap-southeast-2.amazonaws.com/prod/family/population/' + suburb;
 
-// if (!API_KEY) {
-//   throw new Error('API_KEY is not defined in environment variables');
-// }
+  // if (!API_KEY) {
+  //   throw new Error('API_KEY is not defined in environment variables');
+  // }
 
-try {
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': "EBb5OHc2US6L4bGG5ZJna6m4FFs3fgJnaTNZREfu",
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': "EBb5OHc2US6L4bGG5ZJna6m4FFs3fgJnaTNZREfu",
+      }
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`API error ${response.status}: ${errorText}`);
     }
-  });
 
-  if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(`API error ${response.status}: ${errorText}`);
+    const data = await response.json();
+    return data;
+
+  } catch (error) {
+    console.error('Error in getSuburbPopulation:', error);
+    throw error;
   }
-
-  const data = await response.json();
-  return data;
-
-} catch (error) {
-  console.error('Error in getSuburbPopulation:', error);
-  throw error;
 }
+
+export async function getSuburbIncome(suburb: String) {
+  const url =
+  'https://m42dj4mgj8.execute-api.ap-southeast-2.amazonaws.com/prod/family/income/' + suburb;
+
+  // if (!API_KEY) {
+  //   throw new Error('API_KEY is not defined in environment variables');
+  // }
+
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': "EBb5OHc2US6L4bGG5ZJna6m4FFs3fgJnaTNZREfu",
+      }
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`API error ${response.status}: ${errorText}`);
+    }
+
+    const data = await response.json();
+    return data;
+
+  } catch (error) {
+    console.error('Error in getSuburbPopulation:', error);
+    throw error;
+  }
 }

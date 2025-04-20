@@ -7,36 +7,39 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { getSuburbData, getPropertyData } from "@/lib/api"
 import toast from "react-hot-toast"
+import {
+  ShieldCheck,
+  CloudRainWind,
+  Train,
+  Users,
+  Loader2,
+} from "lucide-react"
 
 type CompareMode = "suburb" | "property"
 
 export default function ComparePage() {
   const [selectedSuburbs, setSelectedSuburbs] = useState<any[]>([])
   const [selectedProperties, setSelectedProperties] = useState<any[]>([])
-  const [suburbHistory, setSuburbHistory] = useState<any[]>([])
-  const [propertyHistory, setPropertyHistory] = useState<any[]>([])
   const [mode, setMode] = useState<CompareMode>("suburb")
   const [searchQuery, setSearchQuery] = useState("")
-  const [weights, setWeights] = useState({
-    crime: 0.25,
-    weather: 0.25,
-    familyDemographics: 0.25,
-    publicTransportation: 0.25,
-  });
+
+  const [important, setImportant] = useState({
+    crime: true,
+    weather: true,
+    transport: true,
+    family: true,
+  })
+
+  const [suburbHistory, setSuburbHistory] = useState(() => {
+    return JSON.parse(localStorage.getItem('suburbHistory') || '[]');
+  })
+  const [propertyHistory, setPropertyHistory] = useState(() => {
+    return JSON.parse(localStorage.getItem('propertyHistory') || '[]');
+  })
 
   const selectedHistory = mode === 'suburb' ? suburbHistory : propertyHistory
   const selectedItems = mode === "suburb" ? selectedSuburbs : selectedProperties;
   let loading = false;
-
-  useEffect(() => {
-    const savedSuburbs = JSON.parse(localStorage.getItem('suburbHistory') || '[]');
-    const savedProperties = JSON.parse(localStorage.getItem('propertyHistory') || '[]');
-    const savedWeights = JSON.parse(localStorage.getItem('compareWeights') || '[]');
-  
-    setSuburbHistory(savedSuburbs);
-    setPropertyHistory(savedProperties);
-    setWeights(savedWeights);
-  }, []);
 
   useEffect(() => {
     localStorage.setItem('suburbHistory', JSON.stringify(suburbHistory));
@@ -46,9 +49,14 @@ export default function ComparePage() {
     localStorage.setItem('propertyHistory', JSON.stringify(propertyHistory));
   }, [propertyHistory]);
 
-  useEffect(() => {
-    localStorage.setItem('compareWeights', JSON.stringify(weights))
-  }, [weights])
+  function buildWeights(selections: Record<string, boolean>) {
+    return {
+      crime: selections.crime ? 1 : 0.5,
+      weather: selections.weather ? 1 : 0.5,
+      publicTransportation: selections.transport ? 1 : 0.5,
+      familyDemographics: selections.family ? 1 : 0.5,
+    }
+  }
 
   const handleSearch = async (item: string) => {
     if (loading) {
@@ -92,6 +100,7 @@ export default function ComparePage() {
     }
 
     loading = true;
+    const weights = buildWeights(important);
   
     const promise = fetchData(input, weights);
   
@@ -99,7 +108,6 @@ export default function ComparePage() {
       loading: `Fetching ${currentMode.toLowerCase()} data...`,
       success: (data) => {
         setSelectedItems([...selectedItems, data]);
-        setSearchQuery('');
         updateHistory(data.name);
         loading = false;
         return `${currentMode} added!`;
@@ -258,7 +266,7 @@ export default function ComparePage() {
                     </div>
 
                     <div className="mt-6 space-y-2">
-                      { mode === "suburb" ?
+                      {mode === "suburb" ?
                         <div className="flex justify-between">
                           <span className="text-sm text-gray-500">Median House Price</span>
                           <span className="font-medium">$100,000</span>
@@ -268,13 +276,18 @@ export default function ComparePage() {
                           <span className="text-sm text-gray-500">Estimated House Price</span>
                           <span className="font-medium">$100,000</span>
                         </div>
-
                       }
-                      { mode === "suburb" &&
+                      {mode === "suburb" &&
+                        <>
                           <div className="flex justify-between">
-                          <span className="text-sm text-gray-500">Population</span>
-                          <span className="font-medium">{item.population.toLocaleString()}</span>
-                        </div>
+                            <span className="text-sm text-gray-500">Average Household Income</span>
+                            <span className="font-medium">${item.income.toLocaleString()}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-sm text-gray-500">Population</span>
+                            <span className="font-medium">{item.population.toLocaleString()}</span>
+                          </div>
+                        </>
                       }
                     </div>
                   </CardContent>
@@ -304,7 +317,7 @@ export default function ComparePage() {
             <div className="flex min-h-[500px] flex-col items-center justify-center rounded-lg border border-dashed border-red-200 bg-red-50/50 p-6 text-center">
               <h3 className="text-lg font-medium text-red-600">No {mode === "suburb" ? "Suburbs" : "Properties"} Selected</h3>
               <p className="mt-2 text-gray-500">Search and select {mode === "suburb" ? "suburbs" : "properties"} above to start comparing them side by side.</p>
-              <p className="mt-1 text-sm text-gray-400">You can compare up to 3 {mode === "suburb" ? "suburbs" : "properties"} at once.</p>
+              <p className="mt-1 text-sm text-gray-400">You can compare up to 6 {mode === "suburb" ? "suburbs" : "properties"} at once.</p>
             </div>
           )}
         </div>
@@ -334,30 +347,32 @@ export default function ComparePage() {
 
           <Card className="border-red-200 shadow-md">
             <CardHeader className="bg-red-50">
-              <CardTitle className="text-red-600">Weights</CardTitle>
+              <CardTitle className="text-red-600">What's important</CardTitle>
             </CardHeader>
             <CardContent className="pt-4">
-              {Object.entries(weights).map(([key, value]) => (
-                <div key={key}>
-                  <div className="flex mt-1 mb-[-5px]">
-                    <label className="block text-sm font-medium text-gray-700">
-                      {key}
-                    </label>
-                    <span className="ml-auto block text-sm font-bold">
-                      {value.toFixed(2)}
-                    </span>
-                  </div>
+            <div className="mb-8 grid gap-4 md:grid-cols-1">
+              {[
+                ["crime", <ShieldCheck className="h-5 w-5 text-red-600" />, "Safety"],
+                ["weather", <CloudRainWind className="h-5 w-5 text-red-600" />, "Weather"],
+                ["transport", <Train className="h-5 w-5 text-red-600" />, "Public Transport"],
+                ["family", <Users className="h-5 w-5 text-red-600" />, "Family & Community"],
+              ].map(([key, icon, label]) => (
+                <label
+                  key={key as string}
+                  className="flex items-center gap-2 rounded-lg border p-4 hover:border-red-400"
+                >
                   <input
-                    type="range"
-                    min={0}
-                    max={1}
-                    step={0.05}
-                    value={value}
-                    onChange={(e) => handleWeightChange(key as keyof typeof weights, parseFloat(e.target.value))}
-                    className="w-full h-1.5 bg-red-200 rounded-lg appearance-none cursor-pointer accent-red-500"
+                    type="checkbox"
+                    checked={(important as any)[key as string]}
+                    onChange={(e) =>
+                      setImportant({ ...important, [key as string]: e.target.checked })
+                    }
                   />
-                </div>
+                  {icon}
+                  <span className="text-sm font-medium text-gray-700">{label}</span>
+                </label>
               ))}
+            </div>
             </CardContent>
           </Card>
         </div>

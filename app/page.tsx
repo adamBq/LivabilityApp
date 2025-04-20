@@ -73,7 +73,7 @@ export default function Home() {
                   .getElementById("about-section")
                   ?.scrollIntoView({ behavior: "smooth" })
               }}
-              className="flex flex-col items-center text-gray-500 transition-colors hover:text-red-600"
+              className="m-auto flex flex-col items-center text-gray-500 transition-colors hover:text-red-600"
             >
               <span className="mb-2 text-sm">Learn More</span>
               <ArrowDown className="h-6 w-6" />
@@ -154,9 +154,9 @@ export default function Home() {
             <h2 className="mb-4 text-4xl font-bold text-red-600">
               What Is the Livability Score?
             </h2>
-            <p className="mx-auto max-w-3xl text-lg text-gray-600">
-              A single 0–100 score that captures how comfortable life feels in
-              any NSW suburb — powered by the freshest public data.
+            <p className="mx-auto max-w-4xl text-lg text-gray-600">
+              A single 0-10 score that captures how comfortable life feels in
+              any NSW suburb or property <br/>— powered by the freshest public data.
             </p>
           </div>
 
