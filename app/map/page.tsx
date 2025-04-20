@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import MapExplorer from "@/components/map-explorer"
 
 export default function MapPage() {

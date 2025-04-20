@@ -92,9 +92,13 @@ export default function MapExplorer() {
           </div>
         )}
 
-        <div className="aspect-[4/3] overflow-hidden rounded-lg border border-red-200 bg-white">
+        {/* <div className="aspect-[4/3] overflow-hidden rounded-lg border border-red-200 bg-white">
+          <SimplifiedMap selectedSuburbId={selectedId} pin={pin||undefined} /> */}
+        {/* </div> */}
+        <div className="h-[70vh] overflow-hidden rounded-lg border border-red-200 bg-white">
           <SimplifiedMap selectedSuburbId={selectedId} pin={pin||undefined} />
         </div>
+
       </div>
 
       {/* RIGHT ─ history */}
