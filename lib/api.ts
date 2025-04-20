@@ -240,7 +240,6 @@ export async function getSuburbData(suburb: string, weights?: Record<string, num
     const score = await callScoreAPI(body);
     const population = await getSuburbPopulation(suburb);
     const income = await getSuburbIncome(suburb);
-    console.log(income)
     
       return {
         name: suburb,
@@ -294,10 +293,6 @@ export async function callScoreAPI(body: ScoreRequestBody) {
   const url =
     'https://m42dj4mgj8.execute-api.ap-southeast-2.amazonaws.com:443/prod/livability_score';
 
-  // if (!API_KEY) {
-  //   throw new Error('API_KEY is not defined in environment variables');
-  // }
-
   try {
     const response = await fetch(url, {
       method: 'POST',
@@ -325,10 +320,6 @@ export async function callScoreAPI(body: ScoreRequestBody) {
 export async function getSuburbPopulation(suburb: String) {
   const url =
   'https://m42dj4mgj8.execute-api.ap-southeast-2.amazonaws.com/prod/family/population/' + suburb;
-
-  // if (!API_KEY) {
-  //   throw new Error('API_KEY is not defined in environment variables');
-  // }
 
   try {
     const response = await fetch(url, {
