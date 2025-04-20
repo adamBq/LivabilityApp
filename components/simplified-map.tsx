@@ -14,7 +14,7 @@ import L, { LatLngExpression, LatLng } from "leaflet"
 import "leaflet/dist/leaflet.css"
 import "leaflet.heat"
 
-import suburbData from "@/data/nsw-suburbs-coords-final-scores.json" assert { type: "json" }
+import suburbData from "@/data/nsw-suburb-scores-new.json" assert { type: "json" }
 
 // ────────────────────────────────────────────────────────────
 // helpers
@@ -22,8 +22,18 @@ import suburbData from "@/data/nsw-suburbs-coords-final-scores.json" assert { ty
 const EXCLUDE = ["CADGEE", "ARATULA", "WASHPOOL"]
 const displayPoints = suburbData.filter((s) => !EXCLUDE.includes(s.suburb))
 
+// const scoreToColor = (v: number) => {
+//   const t = Math.max(0, Math.min(10, v)) / 10
+//   return `rgb(${Math.round(255 * (1 - t))},${Math.round(255 * t)},0)`
+// }
 const scoreToColor = (v: number) => {
-  const t = Math.max(0, Math.min(10, v)) / 10
+  // Clamp score to [4, 10]
+  const clamped = Math.max(6.5, Math.min(10, v))
+
+  // Map [4, 10] → [0, 1]
+  const t = Math.pow((clamped - 6) / 6.5, 0.7)
+
+  // Same red-to-green ramp
   return `rgb(${Math.round(255 * (1 - t))},${Math.round(255 * t)},0)`
 }
 
@@ -40,7 +50,7 @@ const idw = (lat: number, lon: number, k = 8, p = 2) => {
     den = 0
   nearest.forEach(({ d, score }) => {
     const w = 1 / Math.pow(d, p)
-    num += w * score
+    num += w * (score ? score : 1)
     den += w
   })
   return { value: den ? num / den : undefined, nearest }
@@ -86,7 +96,7 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId, pin }:
     const build = () => {
       const zoom = map.getZoom()
       const radius = baseRadius * (zoom / 6)
-      const pts: [number, number, number][] = suburbData.map((s) => [s.coordinate.lat, s.coordinate.lon, s.score / 10])
+      const pts: [number, number, number][] = suburbData.map((s) => [s.coordinate.lat, s.coordinate.lon, (s.score ? s.score : 1) / 10])
       return (L as any).heatLayer(pts, {
         radius,
         blur: radius * 0.8,
@@ -144,10 +154,37 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId, pin }:
 
   const showMarkers = mode === "points"
 
+  function LegendPoint() {
+    return (
+      <div className="absolute bottom-2 left-2 z-[30] w-36 rounded bg-white/90 p-2 shadow">
+        <div className="text-sm font-medium mb-1">Livability score</div>
+        <div className="h-2 w-full rounded"
+             style={{ background: 'linear-gradient(to right,rgb(203, 62, 62), #ff4d4d, #3bb273)' }}/>
+        <div className="flex justify-between text-xs mt-1">
+          <span>0</span><span>5</span><span>10</span>
+        </div>
+      </div>
+    )
+  }
+
+  function LegendHeat() {
+    return (
+      <div className="absolute bottom-2 left-2 z-[30] w-36 rounded bg-white/90 p-2 shadow">
+        <div className="text-sm font-medium mb-1">Livability score</div>
+        <div className="h-2 w-full rounded"
+             style={{ background: 'linear-gradient(to right, #ff4d4d, #3bb273)' }}/>
+        <div className="flex justify-between text-xs mt-1">
+          <span>0</span><span>5</span><span>10</span>
+        </div>
+      </div>
+    )
+  }
+  
+  
   return (
     <div className="relative h-full w-full">
       {/* mode buttons */}
-      <div className="absolute right-2 top-2 z-[1000] space-x-1 rounded bg-white/90 p-1 shadow">
+      <div className="absolute right-2 top-2 z-[30] space-x-1 rounded bg-white/90 p-1 shadow">
         {[
           { key: "points", label: "Exact Points" },
           { key: "heat", label: "Heatmap" },
@@ -163,11 +200,12 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId, pin }:
           </button>
         ))}
       </div>
+      {mode === "points" ? <LegendPoint /> : <LegendHeat />}
 
       <MapContainer
         center={[-32.5, 147] as LatLngExpression}
         zoom={6}
-        className="h-full w-full"
+        className="h-full w-full z-[20]"
         style={{ cursor: overMarker ? "pointer" : isPanning ? "grabbing" : "crosshair" }}
         scrollWheelZoom
         preferCanvas
@@ -185,7 +223,7 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId, pin }:
               pathOptions={{
                 color: selectedSuburbId === s.suburb ? "#000" : "#333",
                 weight: 1,
-                fillColor: scoreToColor(s.score),
+                fillColor: scoreToColor(s.score ? s.score : 1),
                 fillOpacity: 0.9,
               }}
               eventHandlers={{
@@ -237,7 +275,7 @@ export default function SimplifiedMap({ onSuburbSelect, selectedSuburbId, pin }:
 
         {hover && !overMarker && (
           <div
-            className="pointer-events-none absolute z-[1000] rounded bg-white/80 px-2 py-1 text-xs text-gray-800 shadow"
+            className="pointer-events-none absolute z-[400] rounded bg-white/80 px-2 py-1 text-xs text-gray-800 shadow"
             style={{ left: hover.pos.x + 12, top: hover.pos.y - 12 }}
           >
             Est. score: {hover.value.toFixed(2)}
