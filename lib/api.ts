@@ -285,7 +285,7 @@ export function findMatchingSuburbs(answers: Record<string, string>) {
 
 interface ScoreRequestBody {
   address: string;
-  suburbOnly: boolean;
+  // suburbOnly: boolean;
   weights: Record<string, number>
 }
 
