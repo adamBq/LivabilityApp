@@ -1,7 +1,7 @@
 // This file contains mock API functions that would be replaced with real API calls in a production app
 
-import { bounds, popup } from "leaflet"
-import { resolve } from "path"
+// import { bounds, popup } from "leaflet"
+// import { resolve } from "path"
 
 // Mock data for suburbs
 const mockSuburbs = [
@@ -217,7 +217,7 @@ const mockSuburbs = [
   },
 ]
 
-const API_KEY = process.env.API_KEY
+// const API_KEY = process.env.API_KEY
 
 // Function to search suburbs by name
 export function getSuburbsByName(query: string) {
@@ -317,7 +317,7 @@ export async function callScoreAPI(body: ScoreRequestBody) {
   }
 }
 
-export async function getSuburbPopulation(suburb: String) {
+export async function getSuburbPopulation(suburb: string) {
   const url =
   'https://m42dj4mgj8.execute-api.ap-southeast-2.amazonaws.com/prod/family/population/' + suburb;
 
@@ -344,7 +344,7 @@ export async function getSuburbPopulation(suburb: String) {
   }
 }
 
-export async function getSuburbIncome(suburb: String) {
+export async function getSuburbIncome(suburb: string) {
   const url =
   'https://m42dj4mgj8.execute-api.ap-southeast-2.amazonaws.com/prod/family/income/' + suburb;
 

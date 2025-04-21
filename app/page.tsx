@@ -129,7 +129,7 @@ export default function Home() {
               <h3 className="mb-3 text-2xl font-bold">Find Your Ideal Suburb</h3>
               <p className="text-gray-600">
                 Take our quiz to discover your dream suburb. Answer a few
-                questions about your preferences, and we'll recommend the most
+                questions about your preferences, and we&aposll recommend the most
                 suitable suburbs for you in NSW.
               </p>
             </div>
