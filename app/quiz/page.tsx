@@ -104,7 +104,7 @@ export default function QuizPage() {
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-red-600">Find Your Ideal Suburb</h1>
         <p className="mt-2 text-gray-600">
-          Answer a few questions and we'll recommend the best suburbs for you in NSW.
+          Answer a few questions and we&apos;ll recommend the best suburbs for you in NSW.
         </p>
       </div>
 
@@ -179,7 +179,7 @@ export default function QuizPage() {
             </CardHeader>
             <CardContent className="pt-6">
               <p className="mb-4 text-gray-600">
-                Based on your preferences, we've found these suburbs that match your criteria:
+                Based on your preferences, we&apos;ve found these suburbs that match your criteria:
               </p>
 
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

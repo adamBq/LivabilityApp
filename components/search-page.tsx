@@ -1,4 +1,4 @@
-// app/search/page.tsx
+// components/search-page.tsx
 "use client"
 
 import { useState, useEffect } from "react"
@@ -35,7 +35,7 @@ function buildWeights(selections: Record<string, boolean>) {
 export default function SearchPage() {
   const searchParams = useSearchParams()
   const [address, setAddress] = useState("")
-  const [important, setImportant] = useState({
+  const [important, setImportant] = useState<Record<'crime' | 'weather' | 'transport' | 'family', boolean>>({
     crime: true,
     weather: false,
     transport: false,
@@ -50,19 +50,20 @@ export default function SearchPage() {
       transportScore: number
       familyScore: number
     }
-    income?: Record<string, any>
+    income?: Record<string, (string | number)>
   } | null>(null)
   const [error, setError] = useState<string | null>(null)
 
-  // On mount, read ?address=... and fire fetch
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    const param = searchParams.get("address")
-    if (param) {
-      const decoded = decodeURIComponent(param)
+    const addressParam = searchParams.get("address")
+    if (addressParam) {
+      const decoded = decodeURIComponent(addressParam)
       setAddress(decoded)
       fetchLivability(decoded)
     }
-  }, [searchParams.toString()])
+  }, [])
+  
 
   async function fetchLivability(addr: string = address) {
     if (!addr) return
@@ -90,7 +91,7 @@ export default function SearchPage() {
       const livData = await livRes.json()
 
       // 2) GET income
-      let incomeData: Record<string, any> | undefined
+      let incomeData: Record<string, (string | number)> | undefined
       try {
         const suburb = addr.split(",")[1]?.trim() || addr.trim()
         const incRes = await fetch(
@@ -118,12 +119,23 @@ export default function SearchPage() {
         },
         income: incomeData,
       })
-    } catch (e: any) {
-      setError(e.message)
+    } catch (e) {
+      if (e instanceof Error) {
+        setError(e.message)
+      } else {
+        setError("An unknown error occurred")
+      } 
     } finally {
-      setIsLoading(false)
+      setIsLoading(false) 
     }
   }
+
+  const factors = [
+    { key: "crime", Icon: ShieldCheck, label: "Safety" },
+    { key: "weather", Icon: CloudRainWind, label: "Weather" },
+    { key: "transport", Icon: Train, label: "Public Transport" },
+    { key: "family", Icon: Users, label: "Family & Community" },
+  ]
 
   return (
     <div className="container mx-auto max-w-3xl px-4 py-20">
@@ -148,27 +160,23 @@ export default function SearchPage() {
         What matters most to you?
       </p>
       <div className="mb-8 grid gap-4 md:grid-cols-4">
-        {[
-          ["crime", <ShieldCheck className="h-5 w-5 text-red-600" />, "Safety"],
-          ["weather", <CloudRainWind className="h-5 w-5 text-red-600" />, "Weather"],
-          ["transport", <Train className="h-5 w-5 text-red-600" />, "Public Transport"],
-          ["family", <Users className="h-5 w-5 text-red-600" />, "Family & Community"],
-        ].map(([key, icon, label]) => (
+        {factors.map(({ key, Icon, label }) => (
           <label
-            key={key as string}
+            key={key}
             className="flex items-center gap-2 rounded-lg border p-4 hover:border-red-400"
           >
             <input
               type="checkbox"
-              checked={(important as any)[key as string]}
+              checked={important[key as keyof typeof important]}
               onChange={(e) =>
-                setImportant({ ...important, [key as string]: e.target.checked })
+                setImportant({ ...important, [key]: e.target.checked })
               }
             />
-            {icon}
+            <Icon className="h-5 w-5 text-red-600" />
             <span className="text-sm font-medium text-gray-700">{label}</span>
           </label>
         ))}
+
       </div>
 
       {/* Manual trigger, if desired */}

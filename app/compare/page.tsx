@@ -12,14 +12,29 @@ import {
   CloudRainWind,
   Train,
   Users,
-  Loader2,
+  // Loader2,
 } from "lucide-react"
 
 type CompareMode = "suburb" | "property"
 
+interface LivabilityBreakdown {
+  crimeScore: number;
+  weatherScore: number;
+  familyScore: number;
+  transportScore: number;
+}
+
+interface ComparisonItem {
+  name: string;
+  overallScore: number;
+  breakdown: LivabilityBreakdown;
+  income: number;
+  population: number;
+}
+
 export default function ComparePage() {
-  const [selectedSuburbs, setSelectedSuburbs] = useState<any[]>([])
-  const [selectedProperties, setSelectedProperties] = useState<any[]>([])
+  const [selectedSuburbs, setSelectedSuburbs] = useState<ComparisonItem[]>([])
+  const [selectedProperties, setSelectedProperties] = useState<ComparisonItem[]>([])
   const [mode, setMode] = useState<CompareMode>("suburb")
   const [searchQuery, setSearchQuery] = useState("")
 
@@ -30,12 +45,21 @@ export default function ComparePage() {
     family: true,
   })
 
-  const [suburbHistory, setSuburbHistory] = useState(() => {
+  const [suburbHistory, setSuburbHistory] = useState<string[]>(() => {
+    if (typeof window === 'undefined') {
+      // on server, start with empty
+      return [];
+    }
     return JSON.parse(localStorage.getItem('suburbHistory') || '[]');
-  })
-  const [propertyHistory, setPropertyHistory] = useState(() => {
+  });
+
+  const [propertyHistory, setPropertyHistory] = useState<string[]>(() => {
+     if (typeof window === 'undefined') {
+      // on server, start with empty
+      return [];
+    }
     return JSON.parse(localStorage.getItem('propertyHistory') || '[]');
-  })
+  });
 
   const selectedHistory = mode === 'suburb' ? suburbHistory : propertyHistory
   const selectedItems = mode === "suburb" ? selectedSuburbs : selectedProperties;
@@ -128,7 +152,7 @@ export default function ComparePage() {
   }
 
   const updateHistory = (item: string) => {
-    if (selectedHistory.some((s) => s.toLowerCase() === item.toLowerCase())) return
+    if (selectedHistory.some((s: string) => s.toLowerCase() === item.toLowerCase())) return
 
     const setSelectedHistory = mode === 'suburb' ? setSuburbHistory : setPropertyHistory
 
@@ -140,9 +164,16 @@ export default function ComparePage() {
     handleSearch(item)
   }
 
-  const handleWeightChange = (key: keyof typeof weights, value: number) => {
-    setWeights((prev) => ({ ...prev, [key]: value }));
-  };
+  // const handleWeightChange = (key: keyof typeof weights, value: number) => {
+  //   setWeights((prev: any) => ({ ...prev, [key]: value }));
+  // };
+
+  const factors = [
+    { key: "crime", Icon: ShieldCheck, label: "Safety" },
+    { key: "weather", Icon: CloudRainWind, label: "Weather" },
+    { key: "transport", Icon: Train, label: "Public Transport" },
+    { key: "family", Icon: Users, label: "Family & Community" },
+  ]
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -185,7 +216,7 @@ export default function ComparePage() {
                   }
                 }}
               />
-              <Button onClick={handleSearch} className="bg-red-600 hover:bg-red-700">
+              <Button onClick={() => handleSearch(searchQuery)} className="bg-red-600 hover:bg-red-700">
                 <Search className="h-4 w-4" />
               </Button>
             </div>
@@ -266,7 +297,7 @@ export default function ComparePage() {
                     </div>
 
                     <div className="mt-6 space-y-2">
-                      {mode === "suburb" ?
+                      {/* {mode === "suburb" ?
                         <div className="flex justify-between">
                           <span className="text-sm text-gray-500">Median House Price</span>
                           <span className="font-medium">$100,000</span>
@@ -276,7 +307,7 @@ export default function ComparePage() {
                           <span className="text-sm text-gray-500">Estimated House Price</span>
                           <span className="font-medium">$100,000</span>
                         </div>
-                      }
+                      } */}
                       {mode === "suburb" &&
                         <>
                           <div className="flex justify-between">
@@ -333,7 +364,7 @@ export default function ComparePage() {
                 </p>
               ) : (
                 <ul className="divide-y divide-gray-100">
-                  {selectedHistory.map((item) => (
+                  {selectedHistory.map((item: string) => (
                     <li key={item} className="py-2">
                       <button onClick={() => searchHistoryItem(item)} className="w-full text-left hover:text-red-600">
                         {item}
@@ -347,28 +378,23 @@ export default function ComparePage() {
 
           <Card className="border-red-200 shadow-md">
             <CardHeader className="bg-red-50">
-              <CardTitle className="text-red-600">What's important</CardTitle>
+              <CardTitle className="text-red-600">What&rsquo;s important</CardTitle>
             </CardHeader>
             <CardContent className="pt-4">
             <div className="mb-8 grid gap-4 md:grid-cols-1">
-              {[
-                ["crime", <ShieldCheck className="h-5 w-5 text-red-600" />, "Safety"],
-                ["weather", <CloudRainWind className="h-5 w-5 text-red-600" />, "Weather"],
-                ["transport", <Train className="h-5 w-5 text-red-600" />, "Public Transport"],
-                ["family", <Users className="h-5 w-5 text-red-600" />, "Family & Community"],
-              ].map(([key, icon, label]) => (
+              {factors.map(({ key, Icon, label }) => (
                 <label
-                  key={key as string}
+                  key={key}
                   className="flex items-center gap-2 rounded-lg border p-4 hover:border-red-400"
                 >
                   <input
                     type="checkbox"
-                    checked={(important as any)[key as string]}
+                    checked={important[key as keyof typeof important]}
                     onChange={(e) =>
-                      setImportant({ ...important, [key as string]: e.target.checked })
+                      setImportant({ ...important, [key]: e.target.checked })
                     }
                   />
-                  {icon}
+                  <Icon className="h-5 w-5 text-red-600" />
                   <span className="text-sm font-medium text-gray-700">{label}</span>
                 </label>
               ))}
