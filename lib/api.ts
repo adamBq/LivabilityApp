@@ -1,5 +1,8 @@
 // This file contains mock API functions that would be replaced with real API calls in a production app
 
+import { bounds, popup } from "leaflet"
+import { resolve } from "path"
+
 // Mock data for suburbs
 const mockSuburbs = [
   {
@@ -214,6 +217,8 @@ const mockSuburbs = [
   },
 ]
 
+const API_KEY = process.env.API_KEY
+
 // Function to search suburbs by name
 export function getSuburbsByName(query: string) {
   // In a real app, this would call an API endpoint
@@ -222,25 +227,49 @@ export function getSuburbsByName(query: string) {
 }
 
 // Function to get detailed suburb data
-export function getSuburbData(suburbId: string, weights?: Record<string, number>) {
-  // In a real app, this would call an API endpoint with the weights
-  // to get a customized livability score
-  const suburb = mockSuburbs.find((s) => s.id === suburbId)
+export async function getSuburbData(suburb: string, weights?: Record<string, number>) {
 
-  if (!suburb) return null
+  if (!suburb || !weights) return null
 
-  // If weights are provided, we would recalculate the score
-  // This is just a simple example of how it might work
-  if (weights) {
-    // In a real app, this would be a more complex calculation
-    // based on the weights and the suburb's metrics
-    console.log("API call would be made here with weights:", weights)
-
-    // For demo purposes, we'll just return the suburb as is
-    return suburb
+  const body = {
+    "address": `${suburb}, NSW`,
+    "weights": weights
   }
+  
+  try {
+    const score = await callScoreAPI(body);
+    const population = await getSuburbPopulation(suburb);
+    const income = await getSuburbIncome(suburb);
+    
+      return {
+        name: suburb,
+        ...score,
+        population: population.totalPopulation, 
+        income: income.average_income_range
+      };
+  } catch (error) {
+    throw new Error(`${error}`);
+  }
+}
 
-  return suburb
+export async function getPropertyData(address: string, weights?: Record<string, number>) {
+
+  if (!address || !weights) return null
+
+  const body = {
+    "address": `${address}, NSW`,
+    "weights": weights
+  }
+  
+  try {
+    const response = await callScoreAPI(body);
+    return {
+      name: address,
+      ...response
+    };
+  } catch (error) {
+    throw new Error(`${error}`);
+  }
 }
 
 // Function to find matching suburbs based on quiz answers
@@ -252,4 +281,96 @@ export function findMatchingSuburbs(answers: Record<string, string>) {
   // For demo purposes, we'll just return some mock results
   // In a real app, these would be filtered and sorted based on the answers
   return mockSuburbs.slice(0, 6).sort((a, b) => b.match - a.match)
+}
+
+interface ScoreRequestBody {
+  address: string;
+  suburbOnly: boolean;
+  weights: Record<string, number>
+}
+
+export async function callScoreAPI(body: ScoreRequestBody) {
+  const url =
+    'https://m42dj4mgj8.execute-api.ap-southeast-2.amazonaws.com:443/prod/livability_score';
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': "EBb5OHc2US6L4bGG5ZJna6m4FFs3fgJnaTNZREfu",
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`API error ${response.status}: ${errorText}`);
+    }
+
+    const data = await response.json();
+    return data;
+
+  } catch (error) {
+    console.error('Error in callScoreAPI:', error);
+    throw error;
+  }
+}
+
+export async function getSuburbPopulation(suburb: String) {
+  const url =
+  'https://m42dj4mgj8.execute-api.ap-southeast-2.amazonaws.com/prod/family/population/' + suburb;
+
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': "EBb5OHc2US6L4bGG5ZJna6m4FFs3fgJnaTNZREfu",
+      }
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`API error ${response.status}: ${errorText}`);
+    }
+
+    const data = await response.json();
+    return data;
+
+  } catch (error) {
+    console.error('Error in getSuburbPopulation:', error);
+    throw error;
+  }
+}
+
+export async function getSuburbIncome(suburb: String) {
+  const url =
+  'https://m42dj4mgj8.execute-api.ap-southeast-2.amazonaws.com/prod/family/income/' + suburb;
+
+  // if (!API_KEY) {
+  //   throw new Error('API_KEY is not defined in environment variables');
+  // }
+
+  try {
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': "EBb5OHc2US6L4bGG5ZJna6m4FFs3fgJnaTNZREfu",
+      }
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`API error ${response.status}: ${errorText}`);
+    }
+
+    const data = await response.json();
+    return data;
+
+  } catch (error) {
+    console.error('Error in getSuburbPopulation:', error);
+    throw error;
+  }
 }
