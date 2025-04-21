@@ -46,11 +46,20 @@ export default function ComparePage() {
   })
 
   const [suburbHistory, setSuburbHistory] = useState<string[]>(() => {
+    if (typeof window === 'undefined') {
+      // on server, start with empty
+      return [];
+    }
     return JSON.parse(localStorage.getItem('suburbHistory') || '[]');
-  })
+  });
+
   const [propertyHistory, setPropertyHistory] = useState<string[]>(() => {
+     if (typeof window === 'undefined') {
+      // on server, start with empty
+      return [];
+    }
     return JSON.parse(localStorage.getItem('propertyHistory') || '[]');
-  })
+  });
 
   const selectedHistory = mode === 'suburb' ? suburbHistory : propertyHistory
   const selectedItems = mode === "suburb" ? selectedSuburbs : selectedProperties;
