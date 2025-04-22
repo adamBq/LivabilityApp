@@ -154,7 +154,7 @@ export default function QuizPage() {
                     <CardDescription>
                       <div className="flex items-center mt-1">
                         <MapPin className="h-3.5 w-3.5 text-gray-500 mr-1" />
-                        <span>Match Score</span>
+                        <span>Top Matches</span>
                       </div>
                     </CardDescription>
                   </div>
@@ -167,10 +167,10 @@ export default function QuizPage() {
                 <div className="mt-2">
                   <div className="flex justify-between text-sm mb-1">
                     <span>Livability Score</span>
-                    <span className="font-medium">{result.score.toFixed(1)}/100</span>
+                    <span className="font-medium">{result.score.toFixed(1)}/10</span>
                   </div>
                   <Progress
-                    value={result.score}
+                    value={result.score * 10}
                     className="h-2 bg-gray-100"
                     indicatorClassName={index === 0 ? "bg-red-600" : index === 1 ? "bg-red-500" : "bg-red-400"}
                   />
@@ -189,14 +189,6 @@ export default function QuizPage() {
                   </div>
                 </div>
               </CardContent>
-              <CardFooter className="bg-gray-50 border-t">
-                <Button
-                  variant="outline"
-                  className="w-full text-red-600 border-red-200 hover:bg-red-50 hover:text-red-700"
-                >
-                  View Details
-                </Button>
-              </CardFooter>
             </Card>
           ))}
         </div>
