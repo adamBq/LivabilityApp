@@ -4,113 +4,113 @@ export const questions: {
   options: { value: string; label: string }[]
 }[] = [
   {
-    id: "lateNight",
+    id: "lateNightSecurity",
     question:
-      "It's 11pm on a weeknight and you hear an unexpected noise outside. How do you react?",
+      "You return home late at night and notice your front door slightly ajar. What do you do?",
     options: [
-      { value: "investigate", label: "Step outside immediately to investigate." },
-      { value: "callSomeone", label: "Call someone to check before stepping out." },
-      { value: "stayGuarded", label: "Stay inside but watch through the window." },
-      { value: "ignore", label: "Ignore it and stay inside." },
+      { value: "secureImmediately", label: "Secure the door immediately and inspect the premises." },
+      { value: "callFriend", label: "Call a friend or neighbour before going inside." },
+      { value: "walkAway", label: "Walk away and call the police from a safe distance." },
+      { value: "ignore", label: "Assume it's nothing and enter as usual." },
     ],
   },
   {
-    id: "schoolyard",
+    id: "neighbourhoodAlerts",
     question:
-      "On touring a local primary school, what would make you enroll on the spot?",
+      "You hear about a string of vehicle break-ins in nearby streets. How concerned are you?",
     options: [
-      { value: "facilities", label: "State-of-the-art facilities." },
-      { value: "teachers", label: "Outstanding and experienced teachers." },
-      { value: "classSize", label: "Small class sizes for individual attention." },
-      { value: "extracurriculars", label: "A wide range of extracurriculars." },
+      { value: "veryConcerned", label: "Very concerned, I'd avoid parking on the street." },
+      { value: "someConcern", label: "Somewhat concerned, I might install a security camera." },
+      { value: "mildConcern", label: "A mild concern but not a dealbreaker." },
+      { value: "unconcerned", label: "Unconcerned, crime happens everywhere." },
     ],
   },
   {
-    id: "sunshine",
+    id: "strangerEncounter",
     question:
-      "You plan a weekend BBQ—how many sunny days per month would you expect?",
+      "You spot an unfamiliar person loitering near your home during the day. What's your reaction?",
     options: [
-      { value: "verySunny", label: "Over 25 sunny days/month (best case)." },
-      { value: "mostlySunny", label: "20-25 sunny days/month." },
-      { value: "someSunny", label: "15-20 sunny days/month." },
-      { value: "fewSunny", label: "Under 15 sunny days/month." },
+      { value: "immediatelyReport", label: "Report them to police immediately." },
+      { value: "observeCautiously", label: "Observe from a distance and stay alert." },
+      { value: "ignoreUnless", label: "Ignore unless they approach the house." },
+      { value: "approachFriendly", label: "Approach and ask if they need help." },
     ],
   },
   {
-    id: "storms",
+    id: "floodingRisk",
     question:
-      "Heavy storms roll through a few times a year—charming or dealbreaker?",
+      "Heavy seasonal rains cause flooding in some areas. What level of flood risk would you tolerate?",
     options: [
-      { value: "loveStorms", label: "I love them—bring it on!" },
-      { value: "fineWithStorms", label: "I'm fine with occasional storms." },
-      { value: "annoyed", label: "They're annoying but manageable." },
-      { value: "dealbreaker", label: "Frequent storms would be a dealbreaker." },
+      { value: "noRisk", label: "No risk, I need high ground and flood mitigation." },
+      { value: "lowRisk", label: "Low risk, minor flooding is manageable." },
+      { value: "occasionalRisk", label: "Occasional risk with flood barriers in place." },
+      { value: "anyRisk", label: "I'm fine even if it floods occasionally." },
     ],
   },
   {
-    id: "eveningWalks",
+    id: "bushfireSeason",
     question:
-      "For evening strolls, do you prefer busy lit streets or quiet dim lanes?",
+      "During bushfire season, air quality and safety can drop. What's your tolerance?",
     options: [
-      { value: "brightBusy", label: "Brightly lit, busier streets." },
-      { value: "moderate", label: "Moderately lit and quiet." },
-      { value: "quiet", label: "Quiet, dimly lit lanes." },
-      { value: "noWalks", label: "I avoid evening walks." },
+      { value: "avoidBushfireProne", label: "Avoid bushfire prone suburbs entirely." },
+      { value: "preparedOnly", label: "Willing if strong emergency plans exist." },
+      { value: "moderateRisk", label: "Moderate risk is acceptable with insurance." },
+      { value: "lowConcern", label: "Low concern, I trust local authorities." },
     ],
   },
   {
-    id: "kidsCommunity",
+    id: "stormFrequency",
     question:
-      "For families with young children, which matters most?",
+      "Frequent storms can disrupt power and travel. What frequency is acceptable?",
     options: [
-      { value: "playgrounds", label: "Local playgrounds everywhere." },
-      { value: "events", label: "Regular community events." },
-      { value: "cafes", label: "Child-friendly cafés nearby." },
-      { value: "neighbours", label: "Trusted neighbours looking out for each other." },
+      { value: "rareStorms", label: "Rare storms, only prefer calm weather." },
+      { value: "seasonalStorms", label: "Seasonal storms are fine if warned in advance." },
+      { value: "frequentStorms", label: "Frequent storms but minimal damage." },
+      { value: "loveStorms", label: "I enjoy watching storms up close." },
     ],
   },
   {
-    id: "healthcare",
+    id: "playgroundAccess",
     question:
-      "Is having a clinic or pharmacy just minutes away essential?",
+      "How important is having playgrounds, parks, and family spaces within walking distance?",
     options: [
-      { value: "essential", label: "Within 5 min walk—a must." },
-      { value: "highlyDesirable", label: "Within 10 min walk." },
-      { value: "acceptableDrive", label: "5-10 min drive is okay." },
-      { value: "notPriority", label: "Not a priority—even further is fine." },
+      { value: "mustHave", label: "Must have multiple playgrounds within 5 min walk." },
+      { value: "veryImportant", label: "Very important, one decent park nearby." },
+      { value: "niceToHave", label: "Nice to have but not essential." },
+      { value: "notNeeded", label: "Not needed, I prefer urban amenities." },
     ],
   },
   {
-    id: "friendlyNeighbours",
+    id: "schoolCatchment",
     question:
-      "How much do you value neighbours who wave hello or host block parties?",
+      "Which best describes your priority for local school quality?",
     options: [
-      { value: "blockParties", label: "Hosts block parties and socials." },
-      { value: "waveHello", label: "Always waves hello." },
-      { value: "occasionalChat", label: "Occasional friendly chats." },
-      { value: "keepToSelf", label: "Prefer to keep to myself." },
+      { value: "topRanked", label: "Top ranked schools within the catchment." },
+      { value: "goodReputation", label: "Schools with a strong reputation." },
+      { value: "adequateOptions", label: "Several adequate schools nearby." },
+      { value: "notImportant", label: "School quality isn't a priority." },
     ],
   },
   {
-    id: "priceStability",
+    id: "communityEvents",
     question:
-      "Would you pay a 10% premium if property values stayed rock-solid?",
+      "Do regular family friendly community events influence your choice?",
     options: [
-      { value: "payPremium", label: "Yes—I pay the premium for stability." },
-      { value: "smallPremium", label: "Maybe a small premium (~5%)." },
-      { value: "noPremium", label: "No—price matters more than stability." },
-      { value: "avoid", label: "I avoid high-priced markets altogether." },
+      { value: "essential", label: "Essential, I want block parties and fairs." },
+      { value: "desirable", label: "Desirable but not mandatory." },
+      { value: "occasional", label: "Occasional events are fine." },
+      { value: "irrelevant", label: "I don't attend community events." },
     ],
   },
   {
-    id: "greenSpaces",
+    id: "publicTransport",
     question:
-      "How important are nearby parks, trails, or sports fields?",
+      "How critical is having reliable public transport (bus, train) within walking distance?",
     options: [
-      { value: "mustHave", label: "They're absolute must haves." },
-      { value: "veryNice", label: "Very nice to have." },
-      { value: "welcome", label: "Welcome but not a priority." },
-      { value: "notCare", label: "I don't care about green spaces." },
+      { value: "within5min", label: "Station or major stop within 5 min walk." },
+      { value: "within15min", label: "Public transport within 15 min walk." },
+      { value: "shortDrive", label: "5-10 min drive to nearest station." },
+      { value: "notPriority", label: "Not a priority, I'll drive everywhere." },
     ],
   },
 ]

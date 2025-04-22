@@ -122,7 +122,7 @@ export default function QuizPage() {
             <div className="animate-spin h-10 w-10 border-4 border-red-600 border-t-transparent rounded-full mx-auto"></div>
           </div>
           <h3 className="text-xl font-semibold mb-2">Finding Your Perfect Match</h3>
-          <p className="text-gray-600">We're analyzing your preferences to find the best suburbs for you...</p>
+          <p className="text-gray-600">We're analysing your preferences to find the best suburbs for you...</p>
         </div>
       </div>
     )
